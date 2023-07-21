@@ -9,3 +9,20 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model usdDairies{
+  id                  Int               @unique @id @default(autoincrement())
+  user_id             String            
+  posted_at           DateTime          
+  deleted_at          DateTime?          
+  today_happy_percent Int?
+  main_content        String
+  good_news           String?
+  bad_news            String?
+  secret_talk         String?
+  love_talk           String?
+  question            String?
+  is_anonymous        Boolean           @default(false)
+
+  @@index([user_id, posted_at])
+}
