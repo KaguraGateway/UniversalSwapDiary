@@ -1,0 +1,13 @@
+name: ci
+on: push
+
+jobs:
+  lint:
+    name: Run lint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build
+        run: docker compose build
+      - name: lint
+        run: docker compose run --rm web pnpm lint
