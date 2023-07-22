@@ -21,7 +21,6 @@ model UsdDairies {
   bad_news            String?
   secret_talk         String?
   love_talk           String?
-  question            String?
   is_anonymous        Boolean           @default(false)
 
   @@index([user_id, posted_at])
