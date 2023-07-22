@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model usdDairies{
+model usdDairies {
   id                  Int               @unique @id @default(autoincrement())
   user_id             String            
   posted_at           DateTime          
@@ -25,4 +25,12 @@ model usdDairies{
   is_anonymous        Boolean           @default(false)
 
   @@index([user_id, posted_at])
+}
+
+model usdDairyPair {
+  id                  Int               @id @unique @default(autoincrement())
+  user_id             String
+  dairy_id            Int
+
+  @@index([user_id, dairy_id])
 }
