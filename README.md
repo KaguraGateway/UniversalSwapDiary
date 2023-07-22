@@ -14,3 +14,10 @@ docker compose build
 ```
 docker compose up
 ```
+
+# その他コマンド
+### Prisma Generate
+Prismaの型ファイルを生成します。
+```
+docker compose run --rm web pnpm dlx prisma generate
+```

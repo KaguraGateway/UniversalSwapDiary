@@ -1,22 +1,11 @@
-FROM node:18-alpine
+FROM node:18-slim
 
 # アプリケーションディレクトリを作成
 WORKDIR /usr/src/app
 
-# 依存関係の定義ファイルをアプリケーションディレクトリにコピー
-COPY package.json pnpm-lock.yaml ./
-
+RUN apt-get update -y && apt-get install -y openssl
 # pnpmインストール
 RUN npm install -g pnpm
 
-# アプリケーションの依存関係をインストール
-RUN pnpm install --frozen-lockfile --prod
-
-# アプリケーションのソースをアプリケーションディレクトリにコピー
-COPY . .
-
 # アプリケーションがリッスンするポートを開放
 EXPOSE 3000
-
-# アプリケーションを実行するコマンド
-CMD [ "pnpm", "dev" ]
