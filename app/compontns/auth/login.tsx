@@ -63,7 +63,7 @@ const Login = () => {
                 </div>
                 <div>
                     <button onClick={handleSignUp}>
-                        <Link href="auth/signup">
+                        <Link href="/auth/signup">
                         はじめてのひとはこちら
                         </Link>
                     </button>

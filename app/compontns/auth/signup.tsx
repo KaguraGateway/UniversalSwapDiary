@@ -14,7 +14,7 @@ const Signup = () => {
 
     return (
         <div className='flex justify-center items-center text-center'>
-            <div className=''>
+            <div>
                 <div>
                     <p>登録</p>
                     <img src="/logo.png" alt="logo" />
@@ -28,6 +28,7 @@ const Signup = () => {
                         <input
                             id="email"
                             type="email"
+                            className='text-black border-2 border-black'
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
@@ -39,13 +40,14 @@ const Signup = () => {
                         <input
                             id="password"
                             type="password"
+                            className='text-black border-2 border-black'
                             value={password}
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
                     <button type="submit">
-                        <Link href="login">
-                        サインアップ
+                        <Link href="/auth/login">
+                            サインアップ
                         </Link>
                     </button>
                 </form>
