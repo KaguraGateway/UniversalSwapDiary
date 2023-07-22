@@ -9,3 +9,31 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model UsdDairies {
+  id                  Int               @unique @id @default(autoincrement())
+  user_id             String
+  posted_at           DateTime
+  deleted_at          DateTime?
+  today_happy_percent Int?
+  main_content        String
+  good_news           String?
+  bad_news            String?
+  secret_talk         String?
+  love_talk           String?
+  is_anonymous        Boolean           @default(false)
+
+  user_pair           UsdReceiveDiaries     @relation(fields: [user_pairId], references: [id])
+  user_pairId         Int
+
+  @@index([user_id, posted_at])
+}
+
+model UsdReceiveDiaries {
+  id                  Int               @id @unique @default(autoincrement())
+  user_id             String
+  dairy_id            Int
+
+  dairies             UsdDairies[]
+  @@index([user_id, dairy_id])
+}
