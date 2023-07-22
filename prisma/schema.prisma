@@ -23,13 +23,13 @@ model UsdDairies {
   love_talk           String?
   is_anonymous        Boolean           @default(false)
 
-  user_pair            UsdDairyPair      @relation(fields: [user_pairId], references: [id])
-  user_pairId          Int
+  user_pair           UsdReceiveDiaries     @relation(fields: [user_pairId], references: [id])
+  user_pairId         Int
 
   @@index([user_id, posted_at])
 }
 
-model UsdDairyPair {
+model UsdReceiveDiaries {
   id                  Int               @id @unique @default(autoincrement())
   user_id             String
   dairy_id            Int
