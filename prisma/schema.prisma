@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model UsdDairies{
+model UsdDairies {
   id                  Int               @unique @id @default(autoincrement())
   user_id             String
   posted_at           DateTime
