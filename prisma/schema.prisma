@@ -10,11 +10,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model usdDairies {
+model UsdDairies{
   id                  Int               @unique @id @default(autoincrement())
-  user_id             String            
-  posted_at           DateTime          
-  deleted_at          DateTime?          
+  user_id             String
+  posted_at           DateTime
+  deleted_at          DateTime?
   today_happy_percent Int?
   main_content        String
   good_news           String?
@@ -27,7 +27,7 @@ model usdDairies {
   @@index([user_id, posted_at])
 }
 
-model usdDairyPair {
+model UsdDairyPair {
   id                  Int               @id @unique @default(autoincrement())
   user_id             String
   dairy_id            Int
