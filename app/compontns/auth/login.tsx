@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React, { useState, FormEvent } from 'react';
 
 const Login = () => {
@@ -20,13 +21,14 @@ const Login = () => {
     };
 
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center text-center">
             <div>
                 <div>
                     <p>それっぽい言葉</p>
                     <img src="/logo.png" alt="logo" />
                     <p>交換日記</p>
                 </div>
+
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor="email">
@@ -61,7 +63,9 @@ const Login = () => {
                 </div>
                 <div>
                     <button onClick={handleSignUp}>
+                        <Link href="auth/signup">
                         はじめてのひとはこちら
+                        </Link>
                     </button>
                 </div>
             </div>
