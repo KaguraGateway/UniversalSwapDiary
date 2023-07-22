@@ -36,5 +36,4 @@ model UsdReceiveDiaries {
 
   dairies             UsdDairies[]
   @@index([user_id, dairy_id])
-
 }
