@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link';
 import React, { useState, FormEvent } from 'react';
 
 const Signup = () => {
@@ -43,7 +44,9 @@ const Signup = () => {
                         />
                     </div>
                     <button type="submit">
+                        <Link href="login">
                         サインアップ
+                        </Link>
                     </button>
                 </form>
             </div>
