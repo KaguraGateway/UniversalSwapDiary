@@ -25,7 +25,6 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "prisma": "^5.0.0",
-    "supabase": "^1.77.9"
+    "prisma": "^5.0.0"
   }
 }
