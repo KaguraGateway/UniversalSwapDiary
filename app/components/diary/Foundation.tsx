@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from "react";
-import Preview from "../../preview/page";
+import Preview from "./Preview";
 import MyContext from "../MyContext/MYContext";
 import BadNews from "./BadNews";
 import GoodNews from "./GoodNews";
@@ -89,7 +89,8 @@ const Foundation = () => {
         setTodayHappy,
         ranking,
         setRanking
-    }
+    };
+    
 
     return (
         <MyContext.Provider value={contextValue}>
