@@ -1,4 +1,4 @@
-import Login from "../../compontns/auth/login"
+import Login from "../../components/auth/login"
 
 //ログインページ
 const LoginPage = () => {

@@ -1,4 +1,4 @@
-import Foundation from "../compontns/diary/Foundation";
+import Foundation from "../components/diary/Foundation";
 
 const diaryPage = () => {
     return (
