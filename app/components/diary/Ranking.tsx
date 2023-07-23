@@ -14,6 +14,7 @@ const Ranking = ({ onTopicChange, onRank1Change, onRank2Change, onRank3Change }:
             <input
                 id="topic"
                 type="text"
+                className='text-black border-2'
                 onChange={(e) => onTopicChange(e.target.value)}
             />
             <label htmlFor="rank1">1位:</label>
