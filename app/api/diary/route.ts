@@ -5,10 +5,10 @@ export async function POST(request: NextRequest) {
     const res = await request.json();
     //ここでPrisma.createかな？
     //TODO: パラメーターの仕様決まったら！
-    let createdData = await prisma.usdDairies.create({
+    let createdData = await prisma.usdDiaries.create({
         data: {
             posted_at: new Date(),
-            today_happy_percent: res.happy_percent,
+            happy_percent: res.happy_percent,
             main_content: res.main_content,
             good_news: res.good_news,
             bad_news: res.bad_news,
