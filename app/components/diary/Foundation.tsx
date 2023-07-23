@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment } from "react";
+import { useRouter } from 'next/navigation'
 import { useState } from "react";
 import Preview from "../../preview/page";
 import MyContext from "../MyContext/MYContext";
@@ -46,12 +46,8 @@ const Foundation = () => {
         );
     }
 
+    const router = useRouter();
     const handleSubmit = () => {
-        if (!isFilled()) {
-            alert("どうして全部入力してくれないの？");
-            return;
-        }
-
         const data = {
             badNews,
             goodNews,
@@ -65,6 +61,7 @@ const Foundation = () => {
         //ここにapiを叩く処理を書く
 
         console.log(data);
+        router.push('/success');
     }
 
     const handlePreview = () => {
