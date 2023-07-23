@@ -68,6 +68,10 @@ const Foundation = () => {
     }
 
     const handlePreview = () => {
+        if (!isFilled()) {
+            alert("全ての項目を埋めてください。");
+            return;
+        }
         setShowPreview(!showPreview);
     }
 
