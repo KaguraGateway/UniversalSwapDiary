@@ -1,4 +1,4 @@
-import Signup from "../../components/auth/signup"
+import Signup from "../../components/auth/Signup"
 
 //サインアップページ
 const SignupPage = () => {
