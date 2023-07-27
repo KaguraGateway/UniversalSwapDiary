@@ -14,14 +14,14 @@ const Signup = () => {
     };
     return (
         <div className="h-screen w-full bg-custom font-Zen">
-            <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet"></link>
+            <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet"></link>
             <div className="bg-[url('/careten.png')] h-18"></div>
             <div className="auth-border pt-20">
                 <div className=''>
                     <div className='flex justify-center items-center'>
                         <img src="/logo.png" alt="logo"/>
                     </div>
-                    <h2 className=' py-4 text-center text-2xl'>とうろく</h2>
+                    <h2 className=' py-4 text-center text-2xl font-bold'>とうろく</h2>
                     <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
                         <div className='w-full px-12'>
                             <div className='pr-20 pt-4'>
@@ -54,14 +54,14 @@ const Signup = () => {
                             </div>
                         </div>
                     </form>
-                    <div className='flex flex-col items-center py-8'>
+                    <div className='flex flex-col items-center py-10'>
                         <button type="submit" className='google-button items-center mb-4 inline-flex'>
                             <img src="/Google.svg" alt="Google" className="mr-2 w-5 h-5"/> 
                             <Link href="/auth/login">
                                 ぐーぐるでとうろく
                             </Link>
                         </button>
-                        <button type="submit" className='auth-button text-2xl'>
+                        <button type="submit" className='auth-button text-2xl font-normal'>
                             <Link href="/auth/login">
                                 とうろく
                             </Link>

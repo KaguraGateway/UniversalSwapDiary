@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link';
+import './auth.css'
 import React, { useState, FormEvent } from 'react';
 
 const Login = () => {
@@ -21,52 +22,66 @@ const Login = () => {
     };
 
     return (
-        <div className="flex justify-center items-center text-center bg-[url('/background')]">
-            <div>
-                <div>
-                    <p>それっぽい言葉</p>
-                    <img src="/logo.png" alt="logo" />
-                    <p>交換日記</p>
-                </div>
-
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="email">
-                            Email
-                        </label>
-                        <input
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                        />
+        <div className="h-screen w-full bg-custom font-Zen">
+            <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet"></link>
+            <div className="bg-[url('/careten.png')] h-18"></div>
+            <div className="auth-border pt-20">
+                <div className=''>
+                    <div className='flex justify-center items-center'>
+                        <img src="/logo.png" alt="logo"/>
                     </div>
-                    <div>
-                        <label htmlFor="password">
-                            パスワード
-                        </label>
-                        <input
-                            id="password"
-                            type="password"
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                        />
+                    <h2 className=' py-4 text-center text-2xl font-bold'>ログイン</h2>
+                    <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+                        <div className='w-full px-12'>
+                            <div className='pr-20 pt-4'>
+                                <div className='mb-4'>
+                                    <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
+                                        メール
+                                    </label>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        className='text-black bg-transparent w-full form-border text-shadow'
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                        placeholder="Email"
+                                    />
+                                </div>
+                                <div className='mb-4 pt-2'>
+                                    <label htmlFor="password" className='block mb-2 text-xl pt-2 text-shadow'>
+                                        パスワード
+                                    </label>
+                                    <input
+                                        id="password"
+                                        type="password"
+                                        className='text-black bg-transparent w-full form-border text-shadow'
+                                        value={password}
+                                        onChange={e => setPassword(e.target.value)}
+                                        placeholder="Password" 
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div className='flex flex-col items-center py-10'>
+                        <button onClick={handleGoogleLogin} className='google-button items-center mb-4 inline-flex'>
+                            <img src="/Google.svg" alt="Google" className="mr-2 w-5 h-5"/> 
+                            Googleでログイン
+                        </button>
+                        <button type="submit" className='auth-button text-2xl font-normal'>
+                            ログイン
+                        </button>
+                        <button onClick={handleSignUp} className='pt-4'>
+                            <Link href="/auth/signup">
+                                はじめてのひとはこちら
+                            </Link>
+                        </button>
                     </div>
-                    <button type="submit">
-                        ログイン
-                    </button>
-                </form>
-                <div>
-                    <button onClick={handleGoogleLogin}>
-                        Googleでログイン
-                    </button>
-                </div>
-                <div>
-                    <button onClick={handleSignUp}>
-                        <Link href="/auth/signup">
-                        はじめてのひとはこちら
-                        </Link>
-                    </button>
+                    <div className="bg-[url('/footcareten.png')] h-18 absolute bottom-0 w-full flex justify-center items-end">
+                        <p className="mb-2">
+                            Copyright © 2023 ぬるぽ工業大学
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
