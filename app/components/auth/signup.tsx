@@ -24,7 +24,7 @@ const Signup = () => {
                     <h2 className=' py-4 text-center text-2xl font-bold'>とうろく</h2>
                     <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
                         <div className='w-full px-12'>
-                            <div className='pr-20 pt-4'>
+                            <div>
                                 <div className='mb-4'>
                                     <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
                                         なまえ
@@ -52,6 +52,11 @@ const Signup = () => {
                                     />
                                 </div>
                             </div>
+                            <button type="submit" className='auth-button text-2xl font-normal'>
+                                <Link href="/auth/login">
+                                    とうろく
+                                </Link>
+                            </button>
                         </div>
                     </form>
                     <div className='flex flex-col items-center py-10'>
@@ -61,9 +66,9 @@ const Signup = () => {
                                 ぐーぐるでとうろく
                             </Link>
                         </button>
-                        <button type="submit" className='auth-button text-2xl font-normal'>
+                        <button className='pt-4'>
                             <Link href="/auth/login">
-                                とうろく
+                                ろぐいんはこちら
                             </Link>
                         </button>
                     </div>

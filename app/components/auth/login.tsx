@@ -33,7 +33,7 @@ const Login = () => {
                     <h2 className=' py-4 text-center text-2xl font-bold'>ログイン</h2>
                     <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
                         <div className='w-full px-12'>
-                            <div className='pr-20 pt-4'>
+                            <div>
                                 <div className='mb-4'>
                                     <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
                                         メール
@@ -60,6 +60,9 @@ const Login = () => {
                                         placeholder="Password" 
                                     />
                                 </div>
+                                <button type='submit' className='auth-button text-2xl font-normal'>
+                                    ログイン
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -67,9 +70,6 @@ const Login = () => {
                         <button onClick={handleGoogleLogin} className='google-button items-center mb-4 inline-flex'>
                             <img src="/Google.svg" alt="Google" className="mr-2 w-5 h-5"/> 
                             Googleでログイン
-                        </button>
-                        <button type="submit" className='auth-button text-2xl font-normal'>
-                            ログイン
                         </button>
                         <button onClick={handleSignUp} className='pt-4'>
                             <Link href="/auth/signup">
