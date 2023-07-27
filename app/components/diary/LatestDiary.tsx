@@ -73,8 +73,7 @@ const LatestDiary = () => {
     }, []);
 
     return (
-        <div className="border">
-            <button onClick={fetchRandomDiary} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">更新</button>
+        <div className="border max-w-xs md:max-w-2xl overflow-x-auto mb-16 md:mb-0">
             {diaryEntry && (
                 <div>
                     <p>今日の幸せ度: {diaryEntry.todayHappy}</p>
@@ -87,6 +86,7 @@ const LatestDiary = () => {
                     <p>今日のランキング: {diaryEntry.ranking.topic}</p>
                 </div>
             )}
+            <button onClick={fetchRandomDiary} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">更新</button>
         </div>
     )
 }

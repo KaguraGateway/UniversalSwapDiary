@@ -1,0 +1,42 @@
+.bg-custom {
+    background: repeating-linear-gradient(135deg, #FFDEE2, #FFDEE2 50px, #FFD6DB 0px, #FFD6DB 90px);
+}
+
+.auth-border {
+    border: 3px solid rgba(255, 250, 214, 0.60);
+    flex-shrink: 0;
+}
+
+.h-18 {
+    height: 4.75rem;
+}
+
+.form-border {
+    border-bottom:dashed  3px  #FCCCD1;
+}
+
+.text-shadow {
+    text-shadow: -1px 0 white, 0 2px white, 1px 0 white, 0 -1px white;
+}
+
+.google-button {
+    border-radius: 40px;
+    background: #FFF;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.17), 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+    padding: 10px 27px;
+}
+
+.auth-button {
+    border-radius: 40px;
+    border: 3px solid #F5F5F5;
+    background: #FFB9C1;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.17), 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
+    display: flex;
+    width: 291px;
+    height: 51px;
+    padding: 10px 27px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
