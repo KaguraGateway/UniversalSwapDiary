@@ -52,12 +52,12 @@ dependencies:
     version: 5.1.6
 
 devDependencies:
-  encoding:
-    specifier: ^0.1.13
-    version: 0.1.13
   "@svgr/webpack":
     specifier: ^8.0.1
     version: 8.0.1
+  encoding:
+    specifier: ^0.1.13
+    version: 0.1.13
   prisma:
     specifier: ^5.0.0
     version: 5.0.0
@@ -3012,7 +3012,6 @@ packages:
       }
     dev: false
 
-  /cross-fetch@3.1.8(encoding@0.1.13):
   /convert-source-map@1.9.0:
     resolution:
       {
@@ -3041,7 +3040,7 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /cross-fetch@3.1.8:
+  /cross-fetch@3.1.8(encoding@0.1.13):
     resolution:
       {
         integrity: sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==,
@@ -5028,7 +5027,6 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /node-fetch@2.6.12(encoding@0.1.13):
   /no-case@3.0.4:
     resolution:
       {
@@ -5039,7 +5037,7 @@ packages:
       tslib: 2.6.0
     dev: true
 
-  /node-fetch@2.6.12:
+  /node-fetch@2.6.12(encoding@0.1.13):
     resolution:
       {
         integrity: sha512-C/fGU2E8ToujUivIO0H+tpQ6HWo4eEmchoPIoXtxCrVghxdKq+QOHqEZW7tuP3KlV3bC8FRMO5nMCC7Zm1VP6g==,
