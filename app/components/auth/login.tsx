@@ -34,39 +34,41 @@ const Login = () => {
                 <Image src="/logo.png" alt="logo" width={300} height={88} />
             </div>
             <KawaiiTitle size='2xl' className="py-4">ログイン</KawaiiTitle>
-            <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
-                <div className='w-full px-12'>
-                    <div>
-                        <div className='mb-4'>
-                            <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
-                                なまえ
-                            </label>
-                            <input
-                                id="usernameOrEmail"
-                                type="text"
-                                className='text-black bg-transparent w-full form-border text-shadow'
-                                value={usernameOrEmail}
-                                onChange={e => setUsernameOrEmail(e.target.value)}
-                                placeholder="ID/Email"
-                            />
-                        </div>
-                        <div className='mb-4 pt-2'>
-                            <label htmlFor="password" className='block mb-2 text-xl pt-2 text-shadow'>
-                                パスワード
-                            </label>
-                            <input
-                                id="password"
-                                type="password"
-                                className='text-black bg-transparent w-full form-border text-shadow'
-                                value={password}
-                                onChange={e => setPassword(e.target.value)}
-                                placeholder="Password"
-                            />
-                        </div>
-                        <div className='flex justify-center mt-2'>
-                            <button type='submit' className='auth-button text-2xl font-normal'>
-                                ログイン
-                            </button>
+            <form onSubmit={handleSubmit} className="h-80 flex flex-col items-center justify-center">
+                <div className="bg-[url('/cloud.svg')] bg-no-repeat bg-center bg-cover max-w-sm">
+                    <div className='w-full px-12 py-6'>
+                        <div>
+                            <div className='mb-4'>
+                                <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
+                                    なまえ
+                                </label>
+                                <input
+                                    id="usernameOrEmail"
+                                    type="text"
+                                    className='text-black bg-transparent w-full form-border text-shadow'
+                                    value={usernameOrEmail}
+                                    onChange={e => setUsernameOrEmail(e.target.value)}
+                                    placeholder="ID/Email"
+                                />
+                            </div>
+                            <div className='mb-4 pt-2'>
+                                <label htmlFor="password" className='block mb-2 text-xl pt-2 text-shadow'>
+                                    パスワード
+                                </label>
+                                <input
+                                    id="password"
+                                    type="password"
+                                    className='text-black bg-transparent w-full form-border text-shadow'
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                    placeholder="Password"
+                                />
+                            </div>
+                            <div className='flex justify-center mt-2'>
+                                <button type='submit' className='auth-button text-2xl font-normal'>
+                                    ログイン
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
