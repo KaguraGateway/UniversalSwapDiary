@@ -1,21 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/app/lib/prisma';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import { getDiaryParams } from '@/app/lib/diary';
 
 export async function POST(request: NextRequest) {
-    const res = await request.json();
-    //ここでPrisma.createかな？
-    //TODO: パラメーターの仕様決まったら！
-    let createdData = await prisma.usdDiaries.create({
-        data: {
-            posted_at: new Date(),
-            happy_percent: res.happy_percent,
-            main_content: res.main_content,
-            good_news: res.good_news,
-            bad_news: res.bad_news,
-            secret_talk: res.secret_talk,
-            love_talk: res.love_talk,
-            is_anonymous: res.is_anonymous
-        }
+    const supabase = createRouteHandlerClient({ cookies });
+    const params = await request.json();
+    const { data, error } = await supabase.auth.getSession();
+    const userId = data.session?.user.id;
+
+    if (!userId || error) {
+        return new Response("Unauthorized", { status: 401 })
+    } else if (params.happy_percent > 100 || params.happy_percent < 0) {
+        return new Response("Bad Request", { status: 400 })
+    }
+    const diaryParams = getDiaryParams(params);
+
+    const createdData = await prisma.usdDiaries.create({
+        data: { ...diaryParams, user_id: userId }
     });
     return NextResponse.json(createdData.id).ok;
 }
