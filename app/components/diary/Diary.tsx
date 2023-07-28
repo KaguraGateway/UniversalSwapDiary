@@ -1,20 +1,17 @@
 'use client';
+import { Dispatch, SetStateAction } from "react";
+import InputBox from "./InputBox";
 
 interface DiaryProps {
-    onValueChange: (value: string) => void;
+    onValueChange: Dispatch<SetStateAction<string>>;
 };
 
 const Diary = ({ onValueChange }: DiaryProps) => {
     return (
-        <div>
+        <>
             <label htmlFor="Diary">Diary</label>
-            <input
-                id="Diary"
-                type="text"
-                className="text-black"
-                onChange={(e) => onValueChange(e.target.value)}
-            />
-        </div>
+            <InputBox color="#ffffff" setInput={onValueChange} />
+        </>
     );
 };
 

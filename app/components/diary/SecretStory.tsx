@@ -1,20 +1,17 @@
 'use client';
+import { Dispatch, SetStateAction } from "react";
+import InputBox from "./InputBox";
 
 interface SecretStoryProps {
-    onValueChange: (value: string) => void;
+    onValueChange: Dispatch<SetStateAction<string>>;
 };
 
 const SecretStory = ({ onValueChange }: SecretStoryProps) => {
     return (
-        <div>
+        <>
             <label htmlFor="SecretStory">SecretStory</label>
-            <input
-                id="SecretStory"
-                type="text"
-                className="text-black border-2"
-                onChange={(e) => onValueChange(e.target.value)}
-            />
-        </div>
+            <InputBox color="#ffffff" setInput={onValueChange} />
+        </>
     );
 };
 

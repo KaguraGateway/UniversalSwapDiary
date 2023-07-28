@@ -10,7 +10,7 @@ interface RankingProps {
 const Ranking = ({ onTopicChange, onRank1Change, onRank2Change, onRank3Change }: RankingProps) => {
     return (
         <div className=''>
-            <label htmlFor="topic">トピック</label>
+            <label htmlFor="topic">なんでもベスト3</label>
             <input
                 id="topic"
                 type="text"
