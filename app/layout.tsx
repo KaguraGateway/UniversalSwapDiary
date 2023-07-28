@@ -1,3 +1,7 @@
+import Footer from './components/layout/Footer'
+import Header from './components/layout/Header'
+import KawaiiBorder from './components/layout/KawaiiBorder'
+import KawaiiPage from './components/layout/KawaiiPage'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -20,7 +24,15 @@ export default function RootLayout({
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
             </head>
-            <body className='font-zen'>{children}</body>
+            <body className='font-zen'>
+                <KawaiiPage>
+                    <Header />
+                    <KawaiiBorder>
+                        {children}
+                    </KawaiiBorder>
+                    <Footer />
+                </KawaiiPage>
+            </body>
         </html>
     )
 }
