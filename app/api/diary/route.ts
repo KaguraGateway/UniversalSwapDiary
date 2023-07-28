@@ -20,5 +20,28 @@ export async function POST(request: NextRequest) {
     const createdData = await prisma.usdDiaries.create({
         data: { ...diaryParams, user_id: userId }
     });
-    return NextResponse.json(createdData.id).ok;
+
+    // 交換
+    const lastDiary = await prisma.usdDiaries.findFirst({
+        where: {
+            receive_user: null,
+            NOT: {
+                user_id: userId
+            }
+        },
+        orderBy: {
+            posted_at: "desc"
+        }
+    });
+    if (lastDiary != null) {
+        await prisma.usdReceiveDiaries.create({
+            data: {
+                diary_id: lastDiary.id,
+                user_id: userId,
+            }
+        });
+    }
+
+
+    return NextResponse.json(createdData.id);
 }
