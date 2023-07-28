@@ -1,10 +1,11 @@
 "use client"
 
-import LatestDiary from "../components/diary/LatestDiary"
+import LatestDiary from "../components/diary/KawaiiDiary"
 import Header from "../components/layout/Header"
 import Footer from "../components/layout/Footer"
 import KawaiiPage from "../components/layout/KawaiiPage"
 import KawaiiBorder from "../components/layout/KawaiiBorder"
+import ViewBox from "../components/diary/ViewBox"
 
 const home = () => {
     return (
