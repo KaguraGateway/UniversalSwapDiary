@@ -5,11 +5,11 @@ type Props= {
     color: string
 }
 
-const DiaryText = (props: Props) => {
+const DiaryBorderText = (props: Props) => {
     return(
-        <div className={`text-[${props.color}] text-2xl font-bold`}>
+        <div className={`text-[${props.color}] text-2xl font-bold text-stroke-3`}>
             {props.children}
         </div>
     );
 };
-export default DiaryText;
+export default DiaryBorderText;

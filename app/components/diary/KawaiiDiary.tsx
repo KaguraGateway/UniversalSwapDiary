@@ -6,6 +6,7 @@ import DisplayDate from "./DisplayDate";
 import { DiaryUtility } from "@/lib/utils";
 import ViewBox from "./ViewBox";
 import DiaryText from "./DiaryText";
+import DiaryBorderText from "./DiaryBorderText";
 
 //apiに置き換えるやつ
 type Props = {
@@ -90,18 +91,18 @@ const KawaiiDiary = (props: Props) => {
                 </div>
             </div>
             <div className="flex justify-between">
-                <DiaryText>きょうのたんとう</DiaryText>
-                <DiaryText>{props.name}</DiaryText>
+                <DiaryBorderText color="#24110A">きょうのたんとう</DiaryBorderText>
+                <DiaryText color="#24110A">{props.name}</DiaryText>
             </div>
             <div className="">
-                <DiaryText>きょうのハッピー度</DiaryText>
+                <DiaryText color="#24110A">きょうのハッピー度</DiaryText>
                 {/* {今日のはーっぴー度} */}
             </div>
             <div className="h-[100px] bg-[#FEEFF1]">
                 aaa
             </div>
             <div>
-                <DiaryText>GOOD NEWS</DiaryText>
+                <DiaryText color="#24110A">GOOD NEWS</DiaryText>
                 <ViewBox color="#FFE1C2">aa</ViewBox>
             </div>
             <div>

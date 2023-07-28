@@ -11,7 +11,7 @@ type Props = {
 const KawaiiBox = (props : Props) => {
     let borderTailwind = "";
     if(props.isBorder) {
-        borderTailwind = `border border-[${props.color}]`;
+        borderTailwind = `border border-[#FFB9C1]`;
     }
     else{
         borderTailwind = `border-b-2 border-r-2 border-[${props.color}]`
@@ -19,7 +19,7 @@ const KawaiiBox = (props : Props) => {
 
     return(
         <div className={`rounded-lg h-[100px] ${borderTailwind} flex justify-center items-center bg-[#FAFAFA] w-[90%]`}>
-            <div className={`border border-3 border-dashed w-[calc(100%_-_16px)] h-[calc(100%_-_16px)] rounded-lg border-[${props.color}] `}>
+            <div className={`border border-3 border-dashed border-[${props.color}] w-[calc(100%_-_16px)] h-[calc(100%_-_16px)] rounded-lg`}>
                 <div className="ml-2">{props.children}</div>
             </div>
         </div>

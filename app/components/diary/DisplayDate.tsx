@@ -12,7 +12,7 @@ const DisplayDate = (props: Props) => {
             {props.bigText}
         </div>
         <div className="text-2xl flex text-end">
-            <DiaryText>{props.smallText}</DiaryText>
+            <DiaryText color="#24110A">{props.smallText}</DiaryText>
         </div>
     </div>
     );
