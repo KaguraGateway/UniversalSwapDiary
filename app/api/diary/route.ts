@@ -43,5 +43,5 @@ export async function POST(request: NextRequest) {
     }
 
 
-    return NextResponse.json(createdData.id);
+    return NextResponse.json({ id: createdData.id });
 }
