@@ -1,20 +1,17 @@
 'use client';
+import { Dispatch, SetStateAction } from "react";
+import InputBox from "./InputBox";
 
 interface LoveTalkProps {
-    onValueChange: (value: string) => void;
+    onValueChange: Dispatch<SetStateAction<string>>;
 };
 
 const LoveTalk = ({ onValueChange }: LoveTalkProps) => {
     return (
-        <div>
+        <>
             <label htmlFor="LoveTalk">LoveTalk</label>
-            <input
-                id="LoveTalk"
-                type="text"
-                className="text-black border-2"
-                onChange={(e) => onValueChange(e.target.value)}
-            />
-        </div>
+            <InputBox color="#ffffff" setInput={onValueChange} />
+        </>
     );
 };
 

@@ -40,3 +40,58 @@
     align-items: center;
     gap: 10px;
 }
+
+.dateborder {
+    width: 353px;
+    border-radius: 25px;
+    border: 3px solid #CCC;
+    background: var(--white, #FAFAFA);
+}
+
+.dateborder2 {
+    border-radius: 25px;
+    border: 4px dashed #CCC;
+    opacity: 0.8999999761581421;
+}
+
+.happyborder {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    background: #CCCCCC;
+    height: 18px;
+    width: 360px;
+    border-radius: 10px;
+    border: solid 3px #dff1ff;
+    outline: 0;
+}
+
+.happyborder:focus {
+    box-shadow: 0 0 3px rgb(0, 161, 255);
+}
+
+.happyborder::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #ffffff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.happyborder::-moz-range-thumb {
+    background: #53aeff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+    border: none;
+}
+
+.happyborder::-moz-focus-outer {
+    border: 0;
+}
+
+.happyborder:active::-webkit-slider-thumb {
+    box-shadow: 0px 5px 10px -2px rgba(0, 0, 0, 0.3);
+}

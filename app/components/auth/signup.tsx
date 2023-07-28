@@ -48,7 +48,7 @@ const Signup = () => {
                                         placeholder="ID"
                                     />
                                 </div>
-
+                              
                                 <div className='mb-2 pt-1'>
                                     <label htmlFor="password" className='block mb-1 text-xl text-shadow'>
                                         メールアドレス
@@ -106,5 +106,4 @@ const Signup = () => {
         </div >
     );
 };
-
 export default Signup;

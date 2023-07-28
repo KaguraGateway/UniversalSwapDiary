@@ -5,7 +5,6 @@ const diaryPage = () => {
     return (
         <>
             <Header />
-            <h2>writeページ</h2>
             <Foundation />
         </>
     )

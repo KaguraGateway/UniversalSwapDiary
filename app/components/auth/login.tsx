@@ -6,7 +6,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from 'next/navigation';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
     const supabase = createClientComponentClient();
     const router = useRouter();
@@ -40,15 +40,15 @@ const Login = () => {
                             <div>
                                 <div className='mb-4'>
                                     <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
-                                        メール
+                                        なまえ
                                     </label>
                                     <input
-                                        id="email"
-                                        type="email"
+                                        id="usernameOrEmail"
+                                        type="text"
                                         className='text-black bg-transparent w-full form-border text-shadow'
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
-                                        placeholder="Email"
+                                        value={usernameOrEmail}
+                                        onChange={e => setUsernameOrEmail(e.target.value)}
+                                        placeholder="ID/Email"
                                     />
                                 </div>
                                 <div className='mb-4 pt-2'>

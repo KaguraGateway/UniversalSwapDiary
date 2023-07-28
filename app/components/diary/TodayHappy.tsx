@@ -16,15 +16,25 @@ const TodayHappy = ({ onValueChange }: TodayHappyProps) => {
 
     return (
         <div>
-            <label htmlFor="todayHappy">今日のハッピー度: {happyValue}</label>
-            <input
-                id="todayHappy"
-                type="range"
-                min="0"
-                max="100"
-                value={happyValue}
-                onChange={handleChange}
-            />
+            <div className='pl-8 py-3'>
+                <label htmlFor="todayHappy" className='text-xl'>きょうのハッピー度: {happyValue}%</label>
+            </div>
+            <div>
+                <input
+                    id="todayHappy"
+                    type="range"
+                    className='happyborder flex w-11/12 mx-auto'
+                    min="0"
+                    max="100"
+                    value={happyValue}
+                    onChange={handleChange}
+                    style={{
+                        background: `linear-gradient(to right, #CCC 0%, #CCC ${
+                            happyValue
+                        }%, #fff ${happyValue}%, white 100%)`
+                    }}
+                />
+            </div>
         </div>
     );
 };
