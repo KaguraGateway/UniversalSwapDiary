@@ -1,10 +1,6 @@
-import Link from "next/link";
-
 const Header = () => {
     return (
-        <header className="bg-repeat">
-            
-        </header>
+        <header className="bg-[url('/lace.svg')] bg-repeat h-[76px] bg-red-400"/>
     );
 };
 
