@@ -28,7 +28,7 @@ const Login = () => {
             <div className="auth-border pt-20">
                 <div className=''>
                     <div className='flex justify-center items-center'>
-                        <img src="/logo.png" alt="logo"/>
+                        <img src="/Logo.png" alt="logo"/>
                     </div>
                     <h2 className=' py-4 text-center text-2xl font-bold'>ログイン</h2>
                     <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
