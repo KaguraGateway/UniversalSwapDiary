@@ -1,9 +1,13 @@
+import { ReactNode } from "react";
 import KawaiiBox from "./KawaiiBox";
 
-const ViewBox = () => {
+type Props = {
+    children: ReactNode
+}
+const ViewBox = (props: Props) => {
     return(
         <>
-            <KawaiiBox color="aaa" isBorder={false}>aa</KawaiiBox>
+            <KawaiiBox color="aaa" isBorder={false}>{props.children}</KawaiiBox>
         </>
     );
 };
