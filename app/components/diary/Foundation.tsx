@@ -2,7 +2,9 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from "react";
+import '.././auth/auth.css';
 import Preview from "./Preview";
+import DateInput from './Date';
 import MyContext from "../MyContext/MYContext";
 import BadNews from "./BadNews";
 import GoodNews from "./GoodNews";
@@ -14,6 +16,7 @@ import TodayHappy from "./TodayHappy";
 import Ranking from "./Ranking";
 
 const Foundation = () => {  
+    const [date, setDate] = useState('');
     const [badNews, setBadNews] = useState('');
     const [goodNews, setGoodNews] = useState('');
     const [loveTalk, setLoveTalk] = useState('');
@@ -32,6 +35,7 @@ const Foundation = () => {
 
     const isFilled = () => {
         return (
+            date !== '' &&
             badNews !== '' &&
             goodNews !== '' &&
             loveTalk !== '' &&
@@ -49,6 +53,7 @@ const Foundation = () => {
     const router = useRouter();
     const handleSubmit = () => {
         const data = {
+            date,
             badNews,
             goodNews,
             loveTalk,
@@ -73,6 +78,8 @@ const Foundation = () => {
     }
 
     const contextValue = {
+        date,
+        setDate,
         badNews,
         setBadNews,
         goodNews,
@@ -94,10 +101,10 @@ const Foundation = () => {
 
     return (
         <MyContext.Provider value={contextValue}>
-            <div className="flex justify-center min-h-screen items-center">
+            <div className="flex bg-custom">
                 <div>
-                    <h1 className="text-center text-4xl font-semibold py-4">交換日記</h1>
                     <div className="space-y-6">
+                        <DateInput onValueChange={setDate} />
                         <BadNews onValueChange={setBadNews} />
                         <GoodNews onValueChange={setGoodNews} />
                         <LoveTalk onValueChange={setLoveTalk} />
