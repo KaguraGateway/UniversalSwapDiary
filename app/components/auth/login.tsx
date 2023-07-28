@@ -4,13 +4,13 @@ import './auth.css'
 import React, { useState, FormEvent } from 'react';
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // ここでAPIを呼び出したり、状態を更新したりします。
-        console.log(`Email: ${email}, Password: ${password}`);
+        console.log(`Username/Email: ${usernameOrEmail}, Password: ${password}`);
     };
 
     const handleGoogleLogin = () => {
@@ -36,15 +36,15 @@ const Login = () => {
                             <div>
                                 <div className='mb-4'>
                                     <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
-                                        メール
+                                        なまえ
                                     </label>
                                     <input
-                                        id="email"
-                                        type="email"
+                                        id="usernameOrEmail"
+                                        type="text"
                                         className='text-black bg-transparent w-full form-border text-shadow'
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
-                                        placeholder="Email"
+                                        value={usernameOrEmail}
+                                        onChange={e => setUsernameOrEmail(e.target.value)}
+                                        placeholder="ID/Email"
                                     />
                                 </div>
                                 <div className='mb-4 pt-2'>
