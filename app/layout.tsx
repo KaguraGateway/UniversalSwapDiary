@@ -2,7 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Zen_Maru_Gothic } from 'next/font/google'
 
-const zenMaru = Zen_Maru_Gothic({ weight: ["300", "400", "500", "700", "900"], display: "swap" })
+const zenMaru = Zen_Maru_Gothic({ weight: ["300", "400", "500", "700", "900"], display: "swap", preload: false })
 
 export const metadata: Metadata = {
     title: 'Create Next App',
