@@ -15,6 +15,8 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'background' : 'url(../public/background2.png)',
         'kumo' : 'url(../public/kumo.png)',
+        'lace' : 'url(../public/lace.svg)',
+        'lace_invert' : 'url(../public/lace_invert.svg)',
       },
       border: {
         'loborder': '3px solid rgba(255, 250, 214, 0.60);'
