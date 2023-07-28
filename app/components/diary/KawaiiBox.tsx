@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import DisplayDate from "./DisplayDate";
 
 type Props = {
     //TODO: Colorの実装
