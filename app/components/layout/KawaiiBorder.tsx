@@ -7,7 +7,7 @@ type Props = {
 const KawaiiBorder = ({children}: Props) => {
     return(
         <div className="flex justify-center">
-            <div className="border border-3 rounded-lg w-[95%]">
+            <div className="border border-3 rounded-lg w-[95%] border-[#FFFAD6]">
                 {children}
             </div>
         </div>
