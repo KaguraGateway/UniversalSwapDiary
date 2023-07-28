@@ -3,7 +3,7 @@
 import React from "react"
 import { useState, useEffect } from "react";
 import DisplayDate from "./DisplayDate";
-import { DiaryUtility } from "@/app/DiaryUtility";
+import { DiaryUtility } from "@/lib/utils";
 import ViewBox from "./ViewBox";
 import DiaryText from "./DiaryText";
 

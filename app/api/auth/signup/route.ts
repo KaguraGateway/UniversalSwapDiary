@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { supabaseAdmin } from "@/app/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase";
 
 /** API化しているのはauth-helperのバグのため、直ってたら不要 */
 export async function POST(request: Request) {

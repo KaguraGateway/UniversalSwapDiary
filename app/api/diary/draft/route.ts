@@ -1,5 +1,5 @@
-import { diaryWhiteParams, getDiaryParams } from "@/app/lib/diary";
-import { prisma } from "@/app/lib/prisma";
+import { diaryWhiteParams, getDiaryParams } from "@/lib/diary";
+import { prisma } from "@/lib/prisma";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";

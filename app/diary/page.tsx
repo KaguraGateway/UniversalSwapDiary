@@ -4,7 +4,7 @@ import Header from "../components/layout/Header";
 import { FC, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import KawaiiPage from "../components/layout/KawaiiPage";
-import { DiaryUtility } from "../DiaryUtility";
+import { DiaryUtility } from "../../lib/utils";
 
 interface Ranking {
     topic: string;
@@ -55,12 +55,12 @@ const mockDiaries: Diary[] = [
 
 const DiaryDetail: FC = () => {
     const [diary, setDiary] = useState<Diary | null>(null);
-    
+
     const searchParms = useSearchParams();
 
     const id = searchParms.get('id');
     console.log('id:', id);
-    
+
     useEffect(() => {
         if (id) {
             console.log('id:', id);
@@ -74,59 +74,59 @@ const DiaryDetail: FC = () => {
 
     return (
         <KawaiiPage>
-        <div className="flex flex-col justify-center min-h-screen py-12 bg-pink-100 sm:px-6 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                <h2 className="mt-6 text-3xl font-extrabold text-center text-purple-900">日記の詳細ページ</h2>
-                {diary ? (
-                    <div className="mt-8 bg-white rounded-lg shadow sm:overflow-hidden">
-                    <div className="grid grid-cols-1 gap-6 px-4 py-5 sm:p-6">
-                        <div className="bg-red-200 p-2 rounded-md">
-                            {diary && new Date(diary.date).getMonth() + 1}月
-                            {diary && new Date(diary.date).getDate()}日
-                            {diary && DiaryUtility.getDayOfWeek(diary.date)}ようび
+            <div className="flex flex-col justify-center min-h-screen py-12 bg-pink-100 sm:px-6 lg:px-8">
+                <div className="sm:mx-auto sm:w-full sm:max-w-md">
+                    <h2 className="mt-6 text-3xl font-extrabold text-center text-purple-900">日記の詳細ページ</h2>
+                    {diary ? (
+                        <div className="mt-8 bg-white rounded-lg shadow sm:overflow-hidden">
+                            <div className="grid grid-cols-1 gap-6 px-4 py-5 sm:p-6">
+                                <div className="bg-red-200 p-2 rounded-md">
+                                    {diary && new Date(diary.date).getMonth() + 1}月
+                                    {diary && new Date(diary.date).getDate()}日
+                                    {diary && DiaryUtility.getDayOfWeek(diary.date)}ようび
+                                </div>
+                                <div className="bg-blue-200 p-2 rounded-md">
+                                    <p className="font-medium">今日のハッピー度</p>
+                                    <p className="text-gray-700">{diary.todayHappy}</p>
+                                </div>
+                                <div className="bg-slate-200 p-2 rounded-md">
+                                    <p className="text-gray-700">{diary.diary}</p>
+                                </div>
+                                <div className="bg-orange-200 p-2 rounded-md">
+                                    <p className="font-medium">GoodNews</p>
+                                    <p className="text-gray-700">{diary.goodNews}</p>
+                                </div>
+                                <div className="bg-lime-200 p-2 rounded-md">
+                                    <p className="font-medium">BadNews</p>
+                                    <p className="text-gray-700">{diary.badNews}</p>
+                                </div>
+                                <div className="bg-purple-200 p-2 rounded-md">
+                                    <p className="font-medium">恋バナ</p>
+                                    <p className="text-gray-700">{diary.loveTalk}</p>
+                                </div>
+                                <div className="bg-emerald-200 p-2 rounded-md">
+                                    <p className="font-medium">ひみつのおはなし</p>
+                                    <p className="text-gray-700">{diary.secretStory}</p>
+                                </div>
+                                <div className="bg-cyan-200 p-2 rounded-md">
+                                    <p className="font-medium">質問</p>
+                                    <p className="text-gray-700">{diary.question}</p>
+                                </div>
+                                <div className="bg-indigo-200 p-2 rounded-md">
+                                    <p className="font-medium">{diary.ranking.topic}</p>
+                                    <ul className="list-disc pl-5 text-gray-700">
+                                        <li>{diary.ranking.rank1}</li>
+                                        <li>{diary.ranking.rank2}</li>
+                                        <li>{diary.ranking.rank3}</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div className="bg-blue-200 p-2 rounded-md">
-                            <p className="font-medium">今日のハッピー度</p>
-                            <p className="text-gray-700">{diary.todayHappy}</p>
-                        </div>
-                        <div className="bg-slate-200 p-2 rounded-md">
-                            <p className="text-gray-700">{diary.diary}</p>
-                        </div>
-                        <div className="bg-orange-200 p-2 rounded-md">
-                            <p className="font-medium">GoodNews</p>
-                            <p className="text-gray-700">{diary.goodNews}</p>
-                        </div>
-                        <div className="bg-lime-200 p-2 rounded-md">
-                            <p className="font-medium">BadNews</p>
-                            <p className="text-gray-700">{diary.badNews}</p>
-                        </div>
-                        <div className="bg-purple-200 p-2 rounded-md">
-                            <p className="font-medium">恋バナ</p>
-                            <p className="text-gray-700">{diary.loveTalk}</p>
-                        </div>
-                        <div className="bg-emerald-200 p-2 rounded-md">
-                            <p className="font-medium">ひみつのおはなし</p>
-                            <p className="text-gray-700">{diary.secretStory}</p>
-                        </div>
-                        <div className="bg-cyan-200 p-2 rounded-md">
-                            <p className="font-medium">質問</p>
-                            <p className="text-gray-700">{diary.question}</p>
-                        </div>
-                        <div className="bg-indigo-200 p-2 rounded-md">
-                            <p className="font-medium">{diary.ranking.topic}</p>
-                            <ul className="list-disc pl-5 text-gray-700">
-                                <li>{diary.ranking.rank1}</li>
-                                <li>{diary.ranking.rank2}</li>
-                                <li>{diary.ranking.rank3}</li>
-                            </ul>
-                        </div>
-                    </div>
+                    ) : (
+                        <p className="mt-6 text-center text-gray-500">Loading...</p>
+                    )}
                 </div>
-            ) : (
-                <p className="mt-6 text-center text-gray-500">Loading...</p>
-            )}
             </div>
-        </div>
         </KawaiiPage>
     );
 };
