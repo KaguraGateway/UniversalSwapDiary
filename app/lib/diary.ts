@@ -13,3 +13,26 @@ export type Diary = {
     user_id: string;
     posted_at: string;
 }
+
+export const diaryWhiteParams = [
+    "happy_percent",
+    "main_content",
+    "good_news",
+    "bad_news",
+    "secret_talk",
+    "love_talk",
+    "best_title",
+    "best_first",
+    "best_second",
+    "best_third",
+    "is_anonymous"
+] as const;
+export type diaryWhiteParams = typeof diaryWhiteParams[number];
+
+export function getDiaryParams(params: any) {
+    let diaryParams: any = {};
+    diaryWhiteParams.forEach((key) => {
+        diaryParams[key] = params[key];
+    });
+    return diaryParams;
+}
