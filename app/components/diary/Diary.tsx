@@ -11,7 +11,7 @@ const Diary = ({ onValueChange }: DiaryProps) => {
             <input
                 id="Diary"
                 type="text"
-                className="text-black border-2"
+                className="text-black"
                 onChange={(e) => onValueChange(e.target.value)}
             />
         </div>
