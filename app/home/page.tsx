@@ -12,8 +12,7 @@ const home = () => {
             <Header />
             <KawaiiBorder>
                 <div className="flex flex-col items-center justify-center h-full">
-                    aaaaaaaaaaaaaaaa
-                    {/* <LatestDiary /> */}
+                    <LatestDiary date={new Date(2023, 7, 21)} name="大石"/>
                 </div>
             </KawaiiBorder>
             <Footer />

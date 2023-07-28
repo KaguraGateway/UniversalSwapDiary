@@ -2,8 +2,14 @@
 
 import React from "react"
 import { useState, useEffect } from "react";
+import DisplayDate from "./DisplayDate";
+import { DiaryUtility } from "@/app/DiaryUtility";
 
 //apiに置き換えるやつ
+type Props = {
+    date: Date;
+    name: string;
+}
 
 interface Ranking {
     topic: string;
@@ -60,7 +66,7 @@ const generateRandomDiaryEntry = () => {
     return entries[Math.floor(Math.random() * entries.length)];
 };
 
-const LatestDiary = () => {
+const LatestDiary = (props: Props) => {
     const [diaryEntry, setDiaryEntry] = useState<DiaryEntry | null>(null);
 
     const fetchRandomDiary = () => {
@@ -73,20 +79,22 @@ const LatestDiary = () => {
     }, []);
 
     return (
-        <div className="border max-w-xs md:max-w-2xl overflow-x-auto mb-16 md:mb-0">
-            {diaryEntry && (
-                <div>
-                    <p>今日の幸せ度: {diaryEntry.todayHappy}</p>
-                    <p>今日の悪いニュース: {diaryEntry.badNews}</p>
-                    <p>今日の良いニュース: {diaryEntry.goodNews}</p>
-                    <p>今日の愛のことば: {diaryEntry.loveTalk}</p>
-                    <p>今日の秘密の話: {diaryEntry.secretStory}</p>
-                    <p>今日の質問: {diaryEntry.question}</p>
-                    <p>今日の日記: {diaryEntry.diary}</p>
-                    <p>今日のランキング: {diaryEntry.ranking.topic}</p>
+        <div className="">
+            <div className="flex">
+                <DisplayDate bigText={props.date.getMonth().toString()} smallText="月"></DisplayDate>
+                <DisplayDate bigText={props.date.getDate().toString()} smallText="日"></DisplayDate>
+                <div className="ml-3">
+                    <DisplayDate bigText={DiaryUtility.getDayOfWeek(props.date.getDate.toString())} smallText="曜日"></DisplayDate>
                 </div>
-            )}
-            <button onClick={fetchRandomDiary} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">更新</button>
+            </div>
+            <div className="flex justify-between">
+                <div className="">きょうのたんとう</div>
+                <div className="">{props.name}</div>
+            </div>
+            <div className="">
+                <div className="">きょうのハッピー度</div>
+                {/* {今日のはーっぴー度} */}
+            </div>
         </div>
     )
 }

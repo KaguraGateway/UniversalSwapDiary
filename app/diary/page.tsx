@@ -54,13 +54,6 @@ const mockDiaries: Diary[] = [
 
 const DiaryDetail: FC = () => {
     const [diary, setDiary] = useState<Diary | null>(null);
-
-    const getDayOfWeek = (date: string) => {
-        const day = new Date(date).getDay();
-        const days = ['日', '月', '火', '水', '木', '金', '土'];
-        
-        return days[day];
-    };
     
     const searchParms = useSearchParams();
 
