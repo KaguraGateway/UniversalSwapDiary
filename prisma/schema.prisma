@@ -2,68 +2,63 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-model UsdProfiles {
-  user_id             String            @id
-  username            String
-
-  @@index([username])
+    provider  = "postgresql"
+    url       = env("DATABASE_URL")
+    directUrl = env("DIRECT_URL")
 }
 
 model UsdDraftDiaries {
-  user_id             String            @id
+    user_id String @id
 
-  today_happy_percent Int?
-  main_content        String?
-  good_news           String?
-  bad_news            String?
-  secret_talk         String?
-  love_talk           String?
-  best_title          String?
-  best_first          String?
-  best_second         String?
-  best_third          String?
+    today_happy_percent Int?
+    main_content        String?
+    good_news           String?
+    bad_news            String?
+    secret_talk         String?
+    love_talk           String?
+    best_title          String?
+    best_first          String?
+    best_second         String?
+    best_third          String?
 
-  is_anonymous        Boolean           @default(false)
+    is_anonymous Boolean @default(false)
 }
 
 model UsdDiaries {
-  id                  Int               @id @default(autoincrement())
-  user_id             String
+    id      Int    @id @default(autoincrement())
+    user_id String
 
-  posted_at           DateTime
-  deleted_at          DateTime?
-  happy_percent       Int?
-  main_content        String
-  good_news           String?
-  bad_news            String?
-  secret_talk         String?
-  love_talk           String?
-  best_title          String?
-  best_first          String?
-  best_second         String?
-  best_third          String?
+    posted_at     DateTime  @default(now())
+    deleted_at    DateTime?
+    happy_percent Int?
+    main_content  String
+    good_news     String?
+    bad_news      String?
+    secret_talk   String?
+    love_talk     String?
+    best_title    String?
+    best_first    String?
+    best_second   String?
+    best_third    String?
 
-  is_anonymous        Boolean           @default(false)
+    is_anonymous Boolean @default(false)
 
-  receive_user        UsdReceiveDiaries?
-  receive_user_id     Int?              @unique
+    receive_user    UsdReceiveDiaries?
+    receive_user_id Int?               @unique
 
-  @@index([user_id, posted_at])
+    @@index([user_id, posted_at])
 }
 
 model UsdReceiveDiaries {
-  id                  Int               @id @default(autoincrement())
-  user_id             String
-  diary_id            Int               @unique
+    id       Int    @id @default(autoincrement())
+    user_id  String
+    diary_id Int    @unique
 
-  diary               UsdDiaries        @relation(fields: [id], references: [receive_user_id])
-  @@index([user_id, diary_id])
+    diary UsdDiaries @relation(fields: [id], references: [receive_user_id])
+
+    @@index([user_id, diary_id])
 }
