@@ -3,6 +3,7 @@
 import Header from "../components/layout/Header";
 import { FC, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import KawaiiPage from "../components/layout/KawaiiPage";
 
 interface Ranking {
     topic: string;
@@ -78,6 +79,7 @@ const DiaryDetail: FC = () => {
     }, [id]);
 
     return (
+        <KawaiiPage>
         <div className="flex flex-col justify-center min-h-screen py-12 bg-pink-100 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <h2 className="mt-6 text-3xl font-extrabold text-center text-purple-900">日記の詳細ページ</h2>
@@ -131,6 +133,7 @@ const DiaryDetail: FC = () => {
             )}
             </div>
         </div>
+        </KawaiiPage>
     );
 };
 
