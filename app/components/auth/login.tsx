@@ -24,7 +24,7 @@ const Login = () => {
     return (
         <div className="h-screen w-full bg-custom font-Zen">
             <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet"></link>
-            <div className="bg-[url('/careten.png')] h-18"></div>
+            <div className="bg-[url('/lace.svg')] h-18"></div>
             <div className="auth-border pt-20">
                 <div className=''>
                     <div className='flex justify-center items-center'>
@@ -77,7 +77,7 @@ const Login = () => {
                             </Link>
                         </button>
                     </div>
-                    <div className="bg-[url('/footcareten.png')] h-18 absolute bottom-0 w-full flex justify-center items-end">
+                    <div className="bg-[url('/lace_invert.svg')] h-18 absolute bottom-0 w-full flex justify-center items-end">
                         <p className="mb-2">
                             Copyright © 2023 ぬるぽ工業大学
                         </p>
