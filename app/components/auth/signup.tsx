@@ -2,15 +2,25 @@
 import Link from 'next/link';
 import './auth.css'
 import React, { useState, FormEvent } from 'react';
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from 'next/navigation';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const supabase = createClientComponentClient();
+    const router = useRouter();
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // ここでAPIを呼び出したり、状態を更新したりします。
-        console.log(`Email: ${email}, Password: ${password}`);
+
+        await supabase.auth.signUp({
+            email, password,
+            options: {
+                emailRedirectTo: `${location.origin}/auth/callback`
+            }
+        });
+        router.refresh();
     };
     return (
         <div className="h-screen w-full bg-custom font-Zen">
@@ -51,11 +61,7 @@ const Signup = () => {
                                     />
                                 </div>
                             </div>
-                            <button type="submit" className='auth-button text-2xl font-normal'>
-                                <Link href="/auth/login">
-                                    とうろく
-                                </Link>
-                            </button>
+                            <button type="submit" className='auth-button text-2xl font-normal'>とうろく</button>
                         </div>
                     </form>
                     <div className='flex flex-col items-center py-10'>
