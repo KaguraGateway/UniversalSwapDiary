@@ -4,6 +4,8 @@ import React from "react"
 import { useState, useEffect } from "react";
 import DisplayDate from "./DisplayDate";
 import { DiaryUtility } from "@/app/DiaryUtility";
+import ViewBox from "./ViewBox";
+import DiaryText from "./DiaryText";
 
 //apiに置き換えるやつ
 type Props = {
@@ -66,7 +68,7 @@ const generateRandomDiaryEntry = () => {
     return entries[Math.floor(Math.random() * entries.length)];
 };
 
-const LatestDiary = (props: Props) => {
+const KawaiiDiary = (props: Props) => {
     const [diaryEntry, setDiaryEntry] = useState<DiaryEntry | null>(null);
 
     const fetchRandomDiary = () => {
@@ -88,15 +90,39 @@ const LatestDiary = (props: Props) => {
                 </div>
             </div>
             <div className="flex justify-between">
-                <div className="">きょうのたんとう</div>
-                <div className="">{props.name}</div>
+                <DiaryText>きょうのたんとう</DiaryText>
+                <DiaryText>{props.name}</DiaryText>
             </div>
             <div className="">
-                <div className="">きょうのハッピー度</div>
+                <DiaryText>きょうのハッピー度</DiaryText>
                 {/* {今日のはーっぴー度} */}
             </div>
+            <div className="h-[100px] bg-[#FEEFF1]">
+                aaa
+            </div>
+            <div>
+                <DiaryText>GOOD NEWS</DiaryText>
+                <ViewBox color="#FFE1C2">aa</ViewBox>
+            </div>
+            <div>
+                <DiaryText>BAD NEWS</DiaryText>
+                <ViewBox color="#D9EDFF">aa</ViewBox>
+            </div>
+            <div>
+                <DiaryText>ひみつのおはなし</DiaryText>
+                <ViewBox color="#DEDEDE">aa</ViewBox>
+            </div>
+            <div>
+                <DiaryText>LOVE TALK</DiaryText>
+                <></>
+            </div>
+            <div>
+                <DiaryText>なんでもBEST3</DiaryText>
+
+            </div>
+
         </div>
     )
 }
 
-export default LatestDiary
+export default KawaiiDiary

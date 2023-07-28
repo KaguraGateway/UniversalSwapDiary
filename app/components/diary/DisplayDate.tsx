@@ -1,3 +1,5 @@
+import DiaryText from "./DiaryText";
+
 type Props = {
     bigText: string;
     smallText: string;
@@ -10,7 +12,7 @@ const DisplayDate = (props: Props) => {
             {props.bigText}
         </div>
         <div className="text-2xl flex text-end">
-            {props.smallText}
+            <DiaryText>{props.smallText}</DiaryText>
         </div>
     </div>
     );
