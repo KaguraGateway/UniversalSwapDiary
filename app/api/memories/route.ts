@@ -5,8 +5,12 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     const supabase = createRouteHandlerClient({ cookies });
-    const { data } = await supabase.auth.getSession();
+    const { data, error } = await supabase.auth.getSession();
     const userId = data.session?.user.id;
+
+    if (error || userId == null) {
+        return new NextResponse(null, { status: 401 });
+    }
 
     const usdReceiveDiaries = await prisma.usdReceiveDiaries.findMany({
         where: {
