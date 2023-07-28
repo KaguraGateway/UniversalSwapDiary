@@ -4,6 +4,7 @@ import Header from "../components/layout/Header";
 import { FC, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import KawaiiPage from "../components/layout/KawaiiPage";
+import { DiaryUtility } from "../DiaryUtility";
 
 interface Ranking {
     topic: string;
@@ -82,7 +83,7 @@ const DiaryDetail: FC = () => {
                         <div className="bg-red-200 p-2 rounded-md">
                             {diary && new Date(diary.date).getMonth() + 1}月
                             {diary && new Date(diary.date).getDate()}日
-                            {diary && getDayOfWeek(diary.date)}ようび
+                            {diary && DiaryUtility.getDayOfWeek(diary.date)}ようび
                         </div>
                         <div className="bg-blue-200 p-2 rounded-md">
                             <p className="font-medium">今日のハッピー度</p>
