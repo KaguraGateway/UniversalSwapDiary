@@ -20,12 +20,10 @@ const Login = () => {
         router.push('/home');
     };
 
-    const handleGoogleLogin = () => {
-        console.log('Google Login')
-    };
-
-    const handleSignUp = () => {
-        console.log('Sign Up')
+    const handleGoogleLogin = async () => {
+        await supabase.auth.signInWithOAuth({
+            provider: 'google'
+        });
     };
 
     return (
@@ -77,7 +75,7 @@ const Login = () => {
                             <img src="/Google.svg" alt="Google" className="mr-2 w-5 h-5" />
                             ぐーぐるでろぐいん
                         </button>
-                        <button onClick={handleSignUp} className='pt-4'>
+                        <button className='pt-4'>
                             <Link href="/auth/signup">
                                 はじめてのひとはこちら
                             </Link>
