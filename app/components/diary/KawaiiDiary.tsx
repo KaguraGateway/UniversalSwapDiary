@@ -86,7 +86,7 @@ const KawaiiDiary = (props: Props) => {
                 <DisplayDate bigText={props.date.getMonth().toString()} smallText="月"></DisplayDate>
                 <DisplayDate bigText={props.date.getDate().toString()} smallText="日"></DisplayDate>
                 <div className="ml-3">
-                    <DisplayDate bigText={DiaryUtility.getDayOfWeek(props.date.getDay().toString())} smallText="曜日"></DisplayDate>
+                    <DisplayDate bigText={DiaryUtility.getDayOfWeek(props.date.toString())} smallText="曜日"></DisplayDate>
                 </div>
             </div>
             <div className="flex justify-between">
