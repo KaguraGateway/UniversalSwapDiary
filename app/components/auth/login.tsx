@@ -2,33 +2,37 @@
 import Link from 'next/link';
 import './auth.css'
 import React, { useState, FormEvent } from 'react';
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
     const [usernameOrEmail, setUsernameOrEmail] = useState('');
     const [password, setPassword] = useState('');
+    const supabase = createClientComponentClient();
+    const router = useRouter();
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // ここでAPIを呼び出したり、状態を更新したりします。
-        console.log(`Username/Email: ${usernameOrEmail}, Password: ${password}`);
+        await supabase.auth.signInWithPassword({
+            email,
+            password
+        });
+        router.push('/home');
     };
 
-    const handleGoogleLogin = () => {
-        console.log('Google Login')
-    };
-
-    const handleSignUp = () => {
-        console.log('Sign Up')
+    const handleGoogleLogin = async () => {
+        await supabase.auth.signInWithOAuth({
+            provider: 'google'
+        });
     };
 
     return (
         <div className="h-screen w-full bg-custom font-Zen">
-            <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap" rel="stylesheet"></link>
             <div className="bg-[url('/lace.svg')] h-18"></div>
             <div className="auth-border pt-20">
                 <div className=''>
                     <div className='flex justify-center items-center'>
-                        <img src="/logo.png" alt="logo"/>
+                        <img src="/logo.png" alt="logo" />
                     </div>
                     <h2 className=' py-4 text-center text-2xl font-bold'>ログイン</h2>
                     <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
@@ -57,7 +61,7 @@ const Login = () => {
                                         className='text-black bg-transparent w-full form-border text-shadow'
                                         value={password}
                                         onChange={e => setPassword(e.target.value)}
-                                        placeholder="Password" 
+                                        placeholder="Password"
                                     />
                                 </div>
                                 <button type='submit' className='auth-button text-2xl font-normal'>
@@ -68,10 +72,10 @@ const Login = () => {
                     </form>
                     <div className='flex flex-col items-center py-10'>
                         <button onClick={handleGoogleLogin} className='google-button items-center mb-4 inline-flex'>
-                            <img src="/Google.svg" alt="Google" className="mr-2 w-5 h-5"/> 
-                            Googleでログイン
+                            <img src="/Google.svg" alt="Google" className="mr-2 w-5 h-5" />
+                            ぐーぐるでろぐいん
                         </button>
-                        <button onClick={handleSignUp} className='pt-4'>
+                        <button className='pt-4'>
                             <Link href="/auth/signup">
                                 はじめてのひとはこちら
                             </Link>
