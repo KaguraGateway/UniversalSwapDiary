@@ -18,11 +18,11 @@ model UsdProfiles {
 }
 
 model UsdDraftDiaries {
-  user_id             String            @id
+  user_id             String          @id
 
   today_happy_percent Int?
-  main_content        String
-  good_news           String
+  main_content        String?
+  good_news           String?
   bad_news            String?
   secret_talk         String?
   love_talk           String?
@@ -31,7 +31,7 @@ model UsdDraftDiaries {
   best_second         String?
   best_third          String?
 
-  is_anonymous        Boolean
+  is_anonymous        Boolean         @default(false)
 }
 
 model UsdDiaries {
