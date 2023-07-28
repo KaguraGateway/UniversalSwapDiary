@@ -3,6 +3,8 @@
 import Header from "../components/layout/Header";
 import { FC, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import KawaiiPage from "../components/layout/KawaiiPage";
+import { DiaryUtility } from "../DiaryUtility";
 
 interface Ranking {
     topic: string;
@@ -53,13 +55,6 @@ const mockDiaries: Diary[] = [
 
 const DiaryDetail: FC = () => {
     const [diary, setDiary] = useState<Diary | null>(null);
-
-    const getDayOfWeek = (date: string) => {
-        const day = new Date(date).getDay();
-        const days = ['日', '月', '火', '水', '木', '金', '土'];
-        
-        return days[day];
-    };
     
     const searchParms = useSearchParams();
 
@@ -78,6 +73,7 @@ const DiaryDetail: FC = () => {
     }, [id]);
 
     return (
+        <KawaiiPage>
         <div className="flex flex-col justify-center min-h-screen py-12 bg-pink-100 sm:px-6 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-md">
                 <h2 className="mt-6 text-3xl font-extrabold text-center text-purple-900">日記の詳細ページ</h2>
@@ -87,7 +83,7 @@ const DiaryDetail: FC = () => {
                         <div className="bg-red-200 p-2 rounded-md">
                             {diary && new Date(diary.date).getMonth() + 1}月
                             {diary && new Date(diary.date).getDate()}日
-                            {diary && getDayOfWeek(diary.date)}ようび
+                            {diary && DiaryUtility.getDayOfWeek(diary.date)}ようび
                         </div>
                         <div className="bg-blue-200 p-2 rounded-md">
                             <p className="font-medium">今日のハッピー度</p>
@@ -131,6 +127,7 @@ const DiaryDetail: FC = () => {
             )}
             </div>
         </div>
+        </KawaiiPage>
     );
 };
 
