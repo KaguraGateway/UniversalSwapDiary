@@ -21,7 +21,7 @@ const Signup = () => {
                 username
             })
         })
-        router.refresh();
+        router.push('/auth/login');
     };
     return (
         <div className="h-screen w-full bg-custom font-Zen">

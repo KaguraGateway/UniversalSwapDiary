@@ -17,7 +17,7 @@ const Login = () => {
             email,
             password
         });
-        router.refresh();
+        router.push('/home');
     };
 
     const handleGoogleLogin = () => {
