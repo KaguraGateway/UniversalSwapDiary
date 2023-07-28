@@ -63,9 +63,11 @@ const Login = () => {
                                 placeholder="Password"
                             />
                         </div>
-                        <button type='submit' className='auth-button text-2xl font-normal'>
-                            ログイン
-                        </button>
+                        <div className='flex justify-center mt-2'>
+                            <button type='submit' className='auth-button text-2xl font-normal'>
+                                ログイン
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>

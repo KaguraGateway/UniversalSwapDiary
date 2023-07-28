@@ -75,7 +75,7 @@ const Signup = () => {
                             />
                         </div>
                     </div>
-                    <div className=' mt-2'>
+                    <div className='flex justify-center mt-2'>
                         <button type="submit" className='auth-button text-2xl font-normal'>
                             とうろく
                         </button>
