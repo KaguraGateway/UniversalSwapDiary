@@ -2,10 +2,10 @@
 import Link from 'next/link';
 import './auth.css'
 import React, { useState, FormEvent } from 'react';
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from 'next/navigation';
 
 const Signup = () => {
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter();
@@ -18,7 +18,7 @@ const Signup = () => {
             body: JSON.stringify({
                 email,
                 password,
-                username: ""
+                username
             })
         })
         router.refresh();
@@ -32,12 +32,26 @@ const Signup = () => {
                         <img src="/logo.png" alt="logo" />
                     </div>
                     <h2 className=' py-4 text-center text-2xl font-bold'>とうろく</h2>
-                    <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-72 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+                    <form onSubmit={handleSubmit} className="bg-[url('/kumo1.png')] h-80 bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
                         <div className='w-full px-12'>
                             <div>
-                                <div className='mb-4'>
-                                    <label htmlFor="email" className='block mb-2 text-xl text-shadow'>
+                                <div className='mb-2'>
+                                    <label htmlFor="email" className='block mb-1 text-xl text-shadow'>
                                         なまえ
+                                    </label>
+                                    <input
+                                        id="id"
+                                        type="id"
+                                        className='text-black bg-transparent w-full form-border text-shadow'
+                                        value={username}
+                                        onChange={e => setUsername(e.target.value)}
+                                        placeholder="ID"
+                                    />
+                                </div>
+
+                                <div className='mb-2 pt-1'>
+                                    <label htmlFor="password" className='block mb-1 text-xl text-shadow'>
+                                        メールアドレス
                                     </label>
                                     <input
                                         id="email"
@@ -48,8 +62,8 @@ const Signup = () => {
                                         placeholder="Email"
                                     />
                                 </div>
-                                <div className='mb-4 pt-2'>
-                                    <label htmlFor="password" className='block mb-2 text-xl pt-2 text-shadow'>
+                                <div className='pt-1'>
+                                    <label htmlFor="password" className='block mb-1 text-xl pt-2 text-shadow'>
                                         あいことば
                                     </label>
                                     <input
@@ -62,17 +76,21 @@ const Signup = () => {
                                     />
                                 </div>
                             </div>
-                            <button type="submit" className='auth-button text-2xl font-normal'>とうろく</button>
-                        </div>
-                    </form>
-                    <div className='flex flex-col items-center py-10'>
+                            <div className=' mt-2'>
+                                <button type="submit" className='auth-button text-2xl font-normal'>
+                                    とうろく
+                                </button>
+                            </div>
+                        </div >
+                    </form >
+                    <div className='flex flex-col items-center py-6'>
                         <button type="submit" className='google-button items-center mb-4 inline-flex'>
                             <img src="/Google.svg" alt="Google" className="mr-2 w-5 h-5" />
                             <Link href="/auth/login">
                                 ぐーぐるでとうろく
                             </Link>
                         </button>
-                        <button className='pt-4'>
+                        <button>
                             <Link href="/auth/login">
                                 ろぐいんはこちら
                             </Link>
@@ -83,9 +101,9 @@ const Signup = () => {
                             Copyright © 2023 ぬるぽ工業大学
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div >
+            </div >
+        </div >
     );
 };
 
