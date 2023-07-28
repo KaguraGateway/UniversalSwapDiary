@@ -8,18 +8,19 @@ import { useRouter } from 'next/navigation';
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const supabase = createClientComponentClient();
     const router = useRouter();
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        await supabase.auth.signUp({
-            email, password,
-            options: {
-                emailRedirectTo: `${location.origin}/auth/callback`
-            }
-        });
+        await fetch('/api/auth/signup', {
+            method: 'POST',
+            body: JSON.stringify({
+                email,
+                password,
+                username: ""
+            })
+        })
         router.refresh();
     };
     return (
