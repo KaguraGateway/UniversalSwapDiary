@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import DisplayDate from "./DisplayDate";
 import { DiaryUtility } from "@/lib/utils";
 import ViewBox from "./ViewBox";
-import DiaryText from "./DiaryText";
+import { KawaiiTitle } from "@/ui/KawaiiTitle";
 
 type Props = {
     date: Date,
@@ -33,34 +33,34 @@ export function KawaiiDiary(props: Props) {
                 </div>
             </div>
             <div className="flex justify-between">
-                <DiaryText>きょうのたんとう</DiaryText>
-                <DiaryText>{props.username}</DiaryText>
+                <KawaiiTitle size="2xl">きょうのたんとう</KawaiiTitle>
+                <KawaiiTitle size="3xl">{props.username}</KawaiiTitle>
             </div>
             <div className="">
-                <DiaryText>きょうのハッピー度</DiaryText>
+                <KawaiiTitle size="xl">きょうのハッピー度</KawaiiTitle>
                 {/* {今日のはーっぴー度} */}
             </div>
             <div className="h-[100px] bg-[#FEEFF1]">
                 {props.main_content}
             </div>
             <div>
-                <DiaryText>GOOD NEWS</DiaryText>
+                <KawaiiTitle size="xl">GOOD NEWS</KawaiiTitle>
                 <ViewBox color="#FFE1C2">{props.good_news}</ViewBox>
             </div>
             <div>
-                <DiaryText>BAD NEWS</DiaryText>
+                <KawaiiTitle size="xl">BAD NEWS</KawaiiTitle>
                 <ViewBox color="#D9EDFF">{props.bad_news}</ViewBox>
             </div>
             <div>
-                <DiaryText>ひみつのおはなし</DiaryText>
+                <KawaiiTitle size="xl">ひみつのおはなし</KawaiiTitle>
                 <ViewBox color="#DEDEDE">{props.secret_talk}</ViewBox>
             </div>
             <div>
-                <DiaryText>LOVE TALK</DiaryText>
+                <KawaiiTitle size="xl">LOVE TALK</KawaiiTitle>
                 <></>
             </div>
             <div>
-                <DiaryText>なんでもBEST3</DiaryText>
+                <KawaiiTitle size="xl">なんでもBEST3</KawaiiTitle>
 
             </div>
 
