@@ -7,6 +7,7 @@ import { DiaryUtility } from "@/lib/utils";
 import ViewBox from "./ViewBox";
 import { KawaiiTitle } from "@/ui/KawaiiTitle";
 import KawaiiEssay from "./KawaiiEssay";
+import { TodayTantou } from "./TodayTantou";
 
 type Props = {
     date: Date,
@@ -33,9 +34,8 @@ export function KawaiiDiary(props: Props) {
                     <DisplayDate bigText={DiaryUtility.getDayOfWeek(props.date.toString())} smallText="曜日"></DisplayDate>
                 </div>
             </div>
-            <div className="flex justify-between">
-                <KawaiiTitle size="2xl">きょうのたんとう</KawaiiTitle>
-                <KawaiiTitle size="3xl">{props.username}</KawaiiTitle>
+            <div className="flex justify-center m-4">
+                <TodayTantou name={props.username}></TodayTantou>
             </div>
             <div className="">
                 <KawaiiTitle size="xl">きょうのハッピー度</KawaiiTitle>
@@ -58,11 +58,16 @@ export function KawaiiDiary(props: Props) {
             </div>
             <div>
                 <KawaiiTitle size="xl">LOVE TALK</KawaiiTitle>
+                <div className="bg-[url('/heart.svg')] bg-no-repeat bg-center w-[100%] h-[280px]">
+                    <div className="text-center w-[100%] h-[100%] translate-y-[40%]">
+                        {props.love_talk}
+                    </div>
+                </div>
+
                 <></>
             </div>
             <div>
                 <KawaiiTitle size="xl">なんでもBEST3</KawaiiTitle>
-
             </div>
 
         </div>

@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import { supabaseAdmin } from "@/lib/supabase";
 
 export async function GET(request: NextRequest) {
     const supabase = createRouteHandlerClient({ cookies });
@@ -17,5 +18,9 @@ export async function GET(request: NextRequest) {
             user_id: userId
         }
     });
-    return NextResponse.json(foundData);
+    const resArr = await Promise.all(foundData.map(async (data) => {
+        const user = await supabaseAdmin.auth.admin.getUserById(data.user_id);
+        return { ...data, user_name: user.data.user?.user_metadata.username }
+    }))
+    return NextResponse.json(resArr);
 }

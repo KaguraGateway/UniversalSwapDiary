@@ -12,6 +12,7 @@ export type Diary = {
     user_name: string | undefined;
     user_id: string;
     posted_at: string;
+    id: number;
 }
 
 export const diaryWhiteParams = [

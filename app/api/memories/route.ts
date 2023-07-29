@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { supabaseAdmin } from "@/lib/supabase";
 import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
@@ -21,8 +22,9 @@ export async function GET(request: Request) {
         }
     });
 
-    const diaries = usdReceiveDiaries.map((usdReceiveDiary) => {
-        return usdReceiveDiary.diary;
-    });
+    const diaries = await Promise.all(usdReceiveDiaries.map(async (data) => {
+        const user = await supabaseAdmin.auth.admin.getUserById(data.diary.user_id);
+        return { ...data.diary, user_name: user.data.user?.user_metadata.username }
+    }))
     return NextResponse.json(diaries);
 }
