@@ -58,9 +58,9 @@ export function KawaiiDiary(props: Props) {
             </div>
             <div>
                 <KawaiiTitle size="xl">LOVE TALK</KawaiiTitle>
-                <div className="bg-[url('/heart.svg')] bg-no-repeat bg-center  max-w-sm w-[100%] h-[280px] ">
-                    <div className="center">
-                        {props.love_talk}
+                <div className="bg-[url('/heart.svg')] bg-no-repeat bg-center w-[100%] h-[280px]">
+                    <div className="text-center w-[100%] h-[100%] translate-y-[40%]">
+                        あああああ{/* {props.love_talk} */}
                     </div>
                 </div>
 
