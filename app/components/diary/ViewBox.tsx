@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import KawaiiBox from "./KawaiiBox";
 
 type Props = {
-    color: string;
+    color: any;
     children: ReactNode;
 }
 const ViewBox = (props: Props) => {
