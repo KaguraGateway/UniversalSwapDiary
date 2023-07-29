@@ -15,8 +15,9 @@ const InputBox = (props: Props) => {
             <KawaiiBox color={props.color} isBorder={true}>
                 <input                 
                     type="text"
-                    className="text-black w-[100%] h-[100%]"
-                    onChange={(e) => valueChange(e.target.value)}>
+                    className="text-black w-[100%] h-[100%] "
+                    onChange={(e) => valueChange(e.target.value)}
+                    >
                 </input>
             </KawaiiBox>
         </>

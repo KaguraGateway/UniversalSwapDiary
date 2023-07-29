@@ -8,10 +8,12 @@ interface SecretStoryProps {
 
 const SecretStory = ({ onValueChange }: SecretStoryProps) => {
     return (
-        <>
-            <label htmlFor="SecretStory">SecretStory</label>
+        <div>
+            <div className='pl-8 py-3'>
+                <label htmlFor="dateInput" className='text-xl'>ひみつのおはなし</label>
+            </div>
             <InputBox color="#ffffff" setInput={onValueChange} />
-        </>
+        </div>
     );
 };
 
