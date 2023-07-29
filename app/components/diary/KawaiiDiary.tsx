@@ -6,6 +6,7 @@ import DisplayDate from "./DisplayDate";
 import { DiaryUtility } from "@/lib/utils";
 import ViewBox from "./ViewBox";
 import { KawaiiTitle } from "@/ui/KawaiiTitle";
+import KawaiiEssay from "./KawaiiEssay";
 
 type Props = {
     date: Date,
@@ -40,8 +41,8 @@ export function KawaiiDiary(props: Props) {
                 <KawaiiTitle size="xl">きょうのハッピー度</KawaiiTitle>
                 {/* {今日のはーっぴー度} */}
             </div>
-            <div className="h-[100px] bg-[#FEEFF1]">
-                {props.main_content}
+            <div>
+                <KawaiiEssay main_content={props.main_content}></KawaiiEssay>
             </div>
             <div>
                 <KawaiiTitle size="xl">GOOD NEWS</KawaiiTitle>
