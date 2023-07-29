@@ -3,23 +3,22 @@ import KawaiiRanking from "./KawaiiRanking";
 import '../auth/auth.css'
 
 type Props = {
-    color: string;
-    setInput: Dispatch<SetStateAction<string>>;
+    setInput1: Dispatch<SetStateAction<string>>;
+    setInput2: Dispatch<SetStateAction<string>>;
+    setInput3: Dispatch<SetStateAction<string>>;
+    setInput4: Dispatch<SetStateAction<string>>;
 }
 
 const InputRanking = (props: Props) => {
-    function valueChange(value: string) {
-        props.setInput(value);
-    }
     return(
         <>
-            <KawaiiRanking color={props.color} isBorder={true}>
+            <KawaiiRanking color={""} isBorder={true}>
                 <div className="flex justify-center items-center">
                     <input 
                         type="text"
                         className="text-black w-[100%] h-[100%] ranking-title "
                         placeholder="すきなタイトルをいれてね"
-                        onChange="props.setInput(e.target.value)}"
+                        onChange={(e) => props.setInput1(e.target.value)}
                     >
                     </input>
                 </div>
@@ -33,7 +32,7 @@ const InputRanking = (props: Props) => {
                                 <input 
                                     type="text"
                                     className="text-black h-[100%] rankingcontent-1"
-                                    onChange={(e) => valueChange(e.target.value)}>
+                                    onChange={(e) => props.setInput2(e.target.value)}>
                                 </input>
                             </div>
                         </div>
@@ -47,7 +46,7 @@ const InputRanking = (props: Props) => {
                                 <input 
                                     type="text"
                                     className="text-black h-[100%] rankingcontent-1"
-                                    onChange={(e) => valueChange(e.target.value)}>
+                                    onChange={(e) => props.setInput3(e.target.value)}>
                                 </input>
                             </div>
                         </div>
@@ -61,7 +60,7 @@ const InputRanking = (props: Props) => {
                                 <input 
                                     type="text"
                                     className="text-black h-[100%] rankingcontent-1"
-                                    onChange={(e) => valueChange(e.target.value)}>
+                                    onChange={(e) => props.setInput4(e.target.value)}>
                                 </input>
                             </div>
                         </div>

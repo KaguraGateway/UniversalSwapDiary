@@ -10,24 +10,18 @@ type MyContextType = {
     setLoveTalk: React.Dispatch<React.SetStateAction<string>>;
     secretStory: string;
     setSecretStory: React.Dispatch<React.SetStateAction<string>>;
-    question: string;
-    setQuestion: React.Dispatch<React.SetStateAction<string>>;
     diary: string;
     setDiary: React.Dispatch<React.SetStateAction<string>>;
     todayHappy: number;
     setTodayHappy: React.Dispatch<React.SetStateAction<number>>;
-    ranking: {
-        topic: string;
-        rank1: string;
-        rank2: string;
-        rank3: string;
-    };
-    setRanking: React.Dispatch<React.SetStateAction<{
-        topic: string;
-        rank1: string;
-        rank2: string;
-        rank3: string;
-    }>>;
+    rankingTopic: string;
+    setRankingTopic: React.Dispatch<React.SetStateAction<string>>;
+    ranking1: string;
+    setRanking1: React.Dispatch<React.SetStateAction<string>>;
+    ranking2: string;
+    setRanking2: React.Dispatch<React.SetStateAction<string>>;
+    ranking3: string;
+    setRanking3: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const MyContext = React.createContext<MyContextType | null>(null);

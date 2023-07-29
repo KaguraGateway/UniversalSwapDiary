@@ -20,15 +20,12 @@ const Foundation = () => {
     const [goodNews, setGoodNews] = useState('');
     const [loveTalk, setLoveTalk] = useState('');
     const [secretStory, setSecretStory] = useState('');
-    const [question, setQuestion] = useState('');
     const [diary, setDiary] = useState('');
     const [todayHappy, setTodayHappy] = useState(0);
-    const [ranking, setRanking] = useState({
-        topic: '',
-        rank1: '',
-        rank2: '',
-        rank3: ''
-    });
+    const [rankingTopic, setRankingTopic] = useState("");
+    const [ranking1, setRanking1] = useState("");
+    const [ranking2, setRanking2] = useState("");
+    const [ranking3, setRanking3] = useState("");
 
     const [showPreview, setShowPreview] = useState(false);
 
@@ -39,13 +36,12 @@ const Foundation = () => {
             goodNews !== '' &&
             loveTalk !== '' &&
             secretStory !== '' &&
-            question !== '' &&
             diary !== '' &&
             todayHappy !== 0 &&
-            ranking.topic !== '' &&
-            ranking.rank1 !== '' &&
-            ranking.rank2 !== '' &&
-            ranking.rank3 !== ''
+            rankingTopic !== '' &&
+            ranking1 !== '' &&
+            ranking2 !== '' &&
+            ranking3 !== ''
         );
     }
 
@@ -60,10 +56,10 @@ const Foundation = () => {
                 "bad_news": badNews,
                 "secret_talk": secretStory,
                 "love_talk": loveTalk,
-                "best_title": ranking.topic,
-                "best_first": ranking.rank1,
-                "best_second": ranking.rank2,
-                "best_third": ranking.rank3,
+                "best_title": rankingTopic,
+                "best_first": ranking1,
+                "best_second": ranking2,
+                "best_third": ranking3,
                 "is_anonymous": false
             })
         });
@@ -89,14 +85,18 @@ const Foundation = () => {
         setLoveTalk,
         secretStory,
         setSecretStory,
-        question,
-        setQuestion,
         diary,
         setDiary,
         todayHappy,
         setTodayHappy,
-        ranking,
-        setRanking
+        rankingTopic,
+        setRankingTopic,
+        ranking1,
+        setRanking1,
+        ranking2,
+        setRanking2,
+        ranking3,
+        setRanking3
     };
 
 
@@ -113,12 +113,13 @@ const Foundation = () => {
                         <SecretStory onValueChange={setSecretStory} />
                         <LoveTalk onValueChange={setLoveTalk} />
                         <Ranking
-                            onTopicChange={(value) => setRanking(prev => ({ ...prev, topic: value }))}
-                            onRank1Change={(value) => setRanking(prev => ({ ...prev, rank1: value }))}
-                            onRank2Change={(value) => setRanking(prev => ({ ...prev, rank2: value }))}
-                            onRank3Change={(value) => setRanking(prev => ({ ...prev, rank3: value }))}
+                            onTopicChange={(value) => setRankingTopic(value)}
+                            onRank1Change={(value) => setRanking1(value)}
+                            onRank2Change={(value) => setRanking2(value)}
+                            onRank3Change={(value) => setRanking3(value)}
                         />
                         <div className="flex justify-between">
+                 
                             <button className="px-3 py-2 rounded" onClick={handlePreview}>プレビュー</button>
                             {isFilled() && <button className="px-3 py-2 rounded" onClick={handleSubmit}>交換する</button>}
                         </div>
