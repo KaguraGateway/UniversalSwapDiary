@@ -40,6 +40,12 @@ export async function POST(request: NextRequest) {
                 user_id: userId,
             }
         });
+        await prisma.usdReceiveDiaries.create({
+            data: {
+                diary_id: createdData.id,
+                user_id: lastDiary.user_id,
+            }
+        });
     }
 
 

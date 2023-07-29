@@ -1,6 +1,5 @@
 'use client';
 
-import History from "../components/diary/History"
 import Header from "../components/layout/Header"
 import Link from "next/link"
 import KawaiiPage from "../components/layout/KawaiiPage"
