@@ -15,8 +15,8 @@ import Diary from "./Diary";
 import TodayHappy from "./TodayHappy";
 import Ranking from "./Ranking";
 
-const Foundation = () => {  
-    const [date, setDate] = useState('');
+const Foundation = () => {
+    const [date, setDate] = useState(new Date().toString());
     const [badNews, setBadNews] = useState('');
     const [goodNews, setGoodNews] = useState('');
     const [loveTalk, setLoveTalk] = useState('');
@@ -51,21 +51,23 @@ const Foundation = () => {
     }
 
     const router = useRouter();
-    const handleSubmit = () => {
-        const data = {
-            date,
-            badNews,
-            goodNews,
-            loveTalk,
-            secretStory,
-            question,
-            diary,
-            todayHappy,
-            ranking
-        };
-        //ここにapiを叩く処理を書く
-
-        console.log(data);
+    const handleSubmit = async () => {
+        await fetch('/api/diary', {
+            method: "POST",
+            body: JSON.stringify({
+                "happy_percent": todayHappy,
+                "main_content": diary,
+                "good_news": goodNews,
+                "bad_news": badNews,
+                "secret_talk": secretStory,
+                "love_talk": loveTalk,
+                "best_title": ranking.topic,
+                "best_first": ranking.rank1,
+                "best_second": ranking.rank2,
+                "best_third": ranking.rank3,
+                "is_anonymous": false
+            })
+        });
         router.push('/success');
     }
 
@@ -97,7 +99,7 @@ const Foundation = () => {
         ranking,
         setRanking
     };
-    
+
 
     return (
         <MyContext.Provider value={contextValue}>
@@ -112,12 +114,12 @@ const Foundation = () => {
                         <SecretStory onValueChange={setSecretStory} />
                         <LoveTalk onValueChange={setLoveTalk} />
                         <Question onValueChange={setQuestion} />
-                            <Ranking 
-                                onTopicChange={(value) => setRanking(prev => ({...prev, topic: value}))}
-                                onRank1Change={(value) => setRanking(prev => ({...prev, rank1: value}))}
-                                onRank2Change={(value) => setRanking(prev => ({...prev, rank2: value}))}
-                                onRank3Change={(value) => setRanking(prev => ({...prev, rank3: value}))}
-                            />
+                        <Ranking
+                            onTopicChange={(value) => setRanking(prev => ({ ...prev, topic: value }))}
+                            onRank1Change={(value) => setRanking(prev => ({ ...prev, rank1: value }))}
+                            onRank2Change={(value) => setRanking(prev => ({ ...prev, rank2: value }))}
+                            onRank3Change={(value) => setRanking(prev => ({ ...prev, rank3: value }))}
+                        />
                         <div className="flex justify-between">
                             <button className="px-3 py-2 rounded" onClick={handlePreview}>プレビュー</button>
                             {isFilled() && <button className="px-3 py-2 rounded" onClick={handleSubmit}>交換する</button>}

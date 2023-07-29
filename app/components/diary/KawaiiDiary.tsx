@@ -5,81 +5,25 @@ import { useState, useEffect } from "react";
 import DisplayDate from "./DisplayDate";
 import { DiaryUtility } from "@/lib/utils";
 import ViewBox from "./ViewBox";
-import DiaryText from "./DiaryText";
+import { KawaiiTitle } from "@/ui/KawaiiTitle";
+import KawaiiEssay from "./KawaiiEssay";
 
-//apiに置き換えるやつ
 type Props = {
-    date: Date;
-    name: string;
+    date: Date,
+    username: string,
+    happy_percent: number,
+    main_content: string,
+    good_news: string,
+    bad_news: string,
+    secret_talk: string,
+    love_talk: string,
+    best_title: string,
+    best_first: string,
+    best_second: string,
+    best_third: string,
 }
 
-interface Ranking {
-    topic: string;
-    rank1: string;
-    rank2: string;
-    rank3: string;
-}
-
-interface DiaryEntry {
-    badNews: string;
-    goodNews: string;
-    loveTalk: string;
-    secretStory: string;
-    question: string;
-    diary: string;
-    todayHappy: number;
-    ranking: Ranking;
-}
-
-const generateRandomDiaryEntry = () => {
-    const entries = [
-        {
-            badNews: "悪い1",
-            goodNews: "良い1",
-            loveTalk: "愛1",
-            secretStory: "秘密1",
-            question: "質問1",
-            diary: "日記1",
-            todayHappy: 10,
-            ranking: {
-                topic: "ランキング1",
-                rank1: 'a',
-                rank2: 'b',
-                rank3: 'c',
-            }
-        },
-        {
-            badNews: "悪い2",
-            goodNews: "良い2",
-            loveTalk: "愛2",
-            secretStory: "秘密2",
-            question: "質問2",
-            diary: "日記2",
-            todayHappy: 20,
-            ranking: {
-                topic: "ランキング2",
-                rank1: 'a',
-                rank2: 'b',
-                rank3: 'c',
-            }
-        },
-    ];
-
-    return entries[Math.floor(Math.random() * entries.length)];
-};
-
-const KawaiiDiary = (props: Props) => {
-    const [diaryEntry, setDiaryEntry] = useState<DiaryEntry | null>(null);
-
-    const fetchRandomDiary = () => {
-        const mockEntry = generateRandomDiaryEntry();
-        setDiaryEntry(mockEntry);
-    };
-
-    useEffect(() => {
-        fetchRandomDiary();
-    }, []);
-
+export function KawaiiDiary(props: Props) {
     return (
         <div className="">
             <div className="flex">
@@ -90,34 +34,34 @@ const KawaiiDiary = (props: Props) => {
                 </div>
             </div>
             <div className="flex justify-between">
-                <DiaryText>きょうのたんとう</DiaryText>
-                <DiaryText>{props.name}</DiaryText>
+                <KawaiiTitle size="2xl">きょうのたんとう</KawaiiTitle>
+                <KawaiiTitle size="3xl">{props.username}</KawaiiTitle>
             </div>
             <div className="">
-                <DiaryText>きょうのハッピー度</DiaryText>
+                <KawaiiTitle size="xl">きょうのハッピー度</KawaiiTitle>
                 {/* {今日のはーっぴー度} */}
             </div>
-            <div className="h-[100px] bg-[#FEEFF1]">
-                aaa
+            <div>
+                <KawaiiEssay main_content={props.main_content}></KawaiiEssay>
             </div>
             <div>
-                <DiaryText>GOOD NEWS</DiaryText>
-                <ViewBox color="#FFE1C2">aa</ViewBox>
+                <KawaiiTitle size="xl">GOOD NEWS</KawaiiTitle>
+                <ViewBox color="#FFE1C2">{props.good_news}</ViewBox>
             </div>
             <div>
-                <DiaryText>BAD NEWS</DiaryText>
-                <ViewBox color="#D9EDFF">aa</ViewBox>
+                <KawaiiTitle size="xl">BAD NEWS</KawaiiTitle>
+                <ViewBox color="#D9EDFF">{props.bad_news}</ViewBox>
             </div>
             <div>
-                <DiaryText>ひみつのおはなし</DiaryText>
-                <ViewBox color="#DEDEDE">aa</ViewBox>
+                <KawaiiTitle size="xl">ひみつのおはなし</KawaiiTitle>
+                <ViewBox color="#DEDEDE">{props.secret_talk}</ViewBox>
             </div>
             <div>
-                <DiaryText>LOVE TALK</DiaryText>
+                <KawaiiTitle size="xl">LOVE TALK</KawaiiTitle>
                 <></>
             </div>
             <div>
-                <DiaryText>なんでもBEST3</DiaryText>
+                <KawaiiTitle size="xl">なんでもBEST3</KawaiiTitle>
 
             </div>
 

@@ -29,7 +29,7 @@ const Preview = () => {
             <p>Secret Story: {secretStory}</p>
             <p>Question: {question}</p>
             <p>Diary: {diary}</p>
-            <p>Today's Happiness: {todayHappy}</p>
+            <p>Today&apos;s Happiness: {todayHappy}</p>
             <p>Ranking:</p>
             <ul>
                 <li>Topic: {ranking.topic}</li>
