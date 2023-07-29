@@ -1,13 +1,15 @@
-import MemoryButton from "public/MemoryButton.svg"
-import WriteButton from "public/WriteButton.svg"
-import ViewDiaryButton from "public/ViewDiaryButton.svg"
+import EveryoneButton from "../diary/EveryoneButton";
+import WriteButton from "../diary/WriteButton";
+import MyButton from "../diary/My";
 
 const FooterMenu = () => {
     return(
-        <footer className="flex justify-center sticky bottom-0">
-            <MemoryButton />
-            <WriteButton />
-            <ViewDiaryButton />
+        <footer className="flex fixed bottom-0  bg-[#FEEFF1] h-[75px] w-[100vw]">
+            <div className="flex sticky items-end">
+                <MyButton />
+                <WriteButton />
+                <EveryoneButton />
+            </div>
         </footer>
     );
 };
