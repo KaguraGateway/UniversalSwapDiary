@@ -8,10 +8,12 @@ interface GoodNewsProps {
 
 const GoodNews = ({ onValueChange }: GoodNewsProps) => {
     return (
-        <>
-            <label htmlFor="GoodNews">GoodNews</label>
+        <div>
+            <div className='pl-8 py-3'>
+                <label htmlFor="dateInput" className='text-xl'>GoodNews</label>
+            </div>
             <InputBox color="#ffffff" setInput={onValueChange} />
-        </>
+        </div>
     );
 };
 

@@ -10,7 +10,6 @@ import BadNews from "./BadNews";
 import GoodNews from "./GoodNews";
 import LoveTalk from "./LoveTalk";
 import SecretStory from "./SecretStory";
-import Question from "./Question";
 import Diary from "./Diary";
 import TodayHappy from "./TodayHappy";
 import Ranking from "./Ranking";
@@ -103,9 +102,9 @@ const Foundation = () => {
 
     return (
         <MyContext.Provider value={contextValue}>
-            <div className="flex bg-custom">
+            <div className="flex bg-custom justify-center">
                 <div>
-                    <div className="space-y-6">
+                    <div className="space-y-5">
                         <DateInput onValueChange={setDate} />
                         <TodayHappy onValueChange={setTodayHappy} />
                         <Diary onValueChange={setDiary} />
@@ -113,7 +112,6 @@ const Foundation = () => {
                         <BadNews onValueChange={setBadNews} />
                         <SecretStory onValueChange={setSecretStory} />
                         <LoveTalk onValueChange={setLoveTalk} />
-                        <Question onValueChange={setQuestion} />
                         <Ranking
                             onTopicChange={(value) => setRanking(prev => ({ ...prev, topic: value }))}
                             onRank1Change={(value) => setRanking(prev => ({ ...prev, rank1: value }))}
