@@ -8,7 +8,7 @@ type Props = {
 const DisplayDate = (props: Props) => {
     return (
         <div className="flex items-end">
-            <div className="w-[63px] rounded-[25px] text-[37px] bg-cyan-100 text-center">
+            <div className="w-[58px] rounded-[25px] text-[37px] bg-cyan-100 text-center">
                 {props.bigText}
             </div>
             <div className="text-2xl flex text-end">
