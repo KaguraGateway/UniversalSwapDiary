@@ -25,7 +25,7 @@ export function KawaiiDiary(props: Props) {
                     <DisplayDate bigText={DiaryUtility.getDayOfWeek(postedAt.toString())} smallText="曜日"></DisplayDate>
                 </div>
             </div>
-            <TodayTantou name={props.diary.user_name} />
+            <TodayTantou name={props.diary.user_name || ""} />
             <div className="">
                 <KawaiiTitle size="xl">きょうのハッピー度</KawaiiTitle>
                 {/* {今日のはーっぴー度} */}
