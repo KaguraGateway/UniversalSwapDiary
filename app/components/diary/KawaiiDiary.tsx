@@ -26,7 +26,7 @@ type Props = {
 export function KawaiiDiary(props: Props) {
     return (
         <div className="">
-            <div className="flex">
+            <div className="flex justify-center">
                 <DisplayDate bigText={props.date.getMonth().toString()} smallText="月"></DisplayDate>
                 <DisplayDate bigText={props.date.getDate().toString()} smallText="日"></DisplayDate>
                 <div className="ml-3">
