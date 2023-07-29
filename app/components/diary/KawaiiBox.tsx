@@ -18,8 +18,8 @@ const KawaiiBox = (props : Props) => {
     }
 
     return(
-        <div className={`rounded-3xl h-[100px] ${borderTailwind} flex justify-center items-center bg-[#FAFAFA] w-full`}>
-            <div className={`border border-[2.5px] border-dashed w-[calc(100%_-_16px)] h-[calc(100%_-_16px)] rounded-3xl border-[${props.color}] `}>
+        <div className={`rounded-3xl min-h-[100px] ${borderTailwind} flex justify-center items-center bg-[#FAFAFA] w-full py-2`}>
+            <div className={`border-[2.5px] border-dashed w-[calc(100%_-_16px)] min-h-[calc(100px_-_16px)] rounded-3xl border-[${props.color}] `}>
                 <div className="ml-2">{props.children}</div>
             </div>
         </div>
