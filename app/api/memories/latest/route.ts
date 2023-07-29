@@ -27,7 +27,7 @@ export async function GET(request: Request) {
         }
     });
     if (usdReceiveDiaries == null) {
-        return new NextResponse(null, { status: 404 });
+        return new NextResponse(null, { status: 204 });
     }
 
     const user = await supabaseAdmin.auth.admin.getUserById(usdReceiveDiaries?.diary.user_id);
