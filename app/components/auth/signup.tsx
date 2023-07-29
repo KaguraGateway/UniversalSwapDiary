@@ -28,7 +28,7 @@ const Signup = () => {
     return (
         <div className='flex flex-col justify-center'>
             <div className='flex justify-center items-center'>
-                <Image src="/logo.png" alt="logo" width={300} height={88} />
+                <Image src="/logo.svg" alt="logo" width={300} height={88} />
             </div>
             <KawaiiTitle size='2xl' className="py-4">とうろく</KawaiiTitle>
             <form onSubmit={handleSubmit} className="h-80 flex flex-col items-center justify-center">
