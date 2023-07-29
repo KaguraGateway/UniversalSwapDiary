@@ -14,12 +14,12 @@ const KawaiiBox = (props : Props) => {
         borderTailwind = `border border-[${props.color}]`;
     }
     else{
-        borderTailwind = `border-b-2 border-r-2 border-[${props.color}]`
+        borderTailwind = `border-b-[3px] border-r-[3px] border-[${props.color}]`
     }
 
     return(
         <div className={`rounded-3xl h-[100px] ${borderTailwind} flex justify-center items-center bg-[#FAFAFA] w-full`}>
-            <div className={`border border-3 border-dashed w-[calc(100%_-_16px)] h-[calc(100%_-_16px)] rounded-3xl border-[${props.color}] `}>
+            <div className={`border border-[2.5px] border-dashed w-[calc(100%_-_16px)] h-[calc(100%_-_16px)] rounded-3xl border-[${props.color}] `}>
                 <div className="ml-2">{props.children}</div>
             </div>
         </div>
