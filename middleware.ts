@@ -12,13 +12,13 @@ export async function middleware(request: NextRequest) {
     });
     const { data, error } = await supabase.auth.getSession();
 
-    // if (error || data.session == null) {
-    //     return NextResponse.redirect(new URL('/auth/login', request.url));
-    // }
-    // // ログイン済みなら/homeにリダイレクト
-    // if (request.nextUrl.pathname === '/') {
-    //     return NextResponse.redirect(new URL('/home', request.url));
-    // }
+    if (error || data.session == null) {
+        return NextResponse.redirect(new URL('/auth/login', request.url));
+    }
+    // ログイン済みなら/homeにリダイレクト
+    if (request.nextUrl.pathname === '/') {
+        return NextResponse.redirect(new URL('/home', request.url));
+    }
 
     return response;
 }
