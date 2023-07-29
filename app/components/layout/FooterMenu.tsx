@@ -1,5 +1,5 @@
 import EveryoneButton from "../diary/EveryoneButton";
-import WriteButton from "../diary/MemoryButton";
+import WriteButton from "../diary/WriteButton";
 import MyButton from "../diary/My";
 
 const FooterMenu = () => {
