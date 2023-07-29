@@ -1,10 +1,10 @@
 'use client'
 
-import Header from "../components/layout/Header";
+import Header from "../../components/layout/Header";
 import { FC, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import KawaiiPage from "../components/layout/KawaiiPage";
-import { DiaryUtility } from "../../lib/utils";
+import KawaiiPage from "../../components/layout/KawaiiPage";
+import { DiaryUtility } from "../../../lib/utils";
 
 interface Ranking {
     topic: string;

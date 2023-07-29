@@ -5,12 +5,12 @@ type Props = {
 }
 export const TodayTantou = (props: Props) => {
     return (
-        <div className="flex justify-between">
+        <div className="flex justify-center gap-4 items-center">
             <KawaiiTitle size="2xl">きょうのたんとう</KawaiiTitle>
-            <div className="relative w-[200px] h-[105px]">
+            <div className="inline-flex relative">
                 <div className="w-[110px] h-[57px] bg-[url('/star.svg')]"></div>
                 <div className="absolute top-[8px] left-[16px]">
-                    <KawaiiTitle size="3xl">{props.name}</KawaiiTitle>
+                    <KawaiiTitle size="2xl">{props.name}</KawaiiTitle>
                 </div>
             </div>
         </div>
